@@ -1,0 +1,12 @@
+[
+	{
+		"ingredientPattern": "PPP	PEP	P_P",
+		"ingredients": {
+			"P": { "type": "item", "code": "vsdune:spice-plastic" },
+			"E": { "type": "item", "code": "vsdune:electronics" }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "block", "code": "vsdune:thumper", "quantity": 1 }
+	}
+]

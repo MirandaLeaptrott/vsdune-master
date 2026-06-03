@@ -1,0 +1,22 @@
+{
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textures": {
+		"tech": "game:block/machine/tech/tech-powergeneratormain"
+	},
+	"elements": [
+		{
+			"name": "key",
+			"from": [-3, 7, 4],
+			"to": [3, 9, 12],
+			"faces": {
+				"north": { "texture": "#tech", "uv": [0, 0, 6, 2] },
+				"east":  { "texture": "#tech", "uv": [0, 0, 8, 2] },
+				"south": { "texture": "#tech", "uv": [0, 0, 6, 2] },
+				"west":  { "texture": "#tech", "uv": [0, 0, 8, 2] },
+				"up":    { "texture": "#tech", "uv": [0, 0, 6, 8] },
+				"down":  { "texture": "#tech", "uv": [0, 0, 6, 8] }
+			}
+		}
+	]
+}

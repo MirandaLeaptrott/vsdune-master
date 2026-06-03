@@ -1,0 +1,10 @@
+{
+
+	"ingredientPattern": "S",
+	"ingredients": {
+		"S": { "type": "item", "code": "vsdune:spice-unprocessed-wet", "quantity": 4 }
+	},
+	"width": 1,
+	"height": 1,
+	"output": { "type": "item", "code": "game:clay-red", "quantity": 1 }
+}

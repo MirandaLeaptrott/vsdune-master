@@ -1,0 +1,44 @@
+{
+	// Fremen faction outfit pool: hooded desert kit. Reuses SAND
+	// deserthelmet1 / desertarmor1 shapes for the hood + robe silhouette,
+	// pants variants 1 and 3 for leg variety. Single head + body variant
+	// keeps the faction visually cohesive while pants pick adds motion.
+
+	"variants": {
+		"head-fremen-hood": {
+			"base": "sand:entity/humanoid/seraph/sandy/armor/head/deserthelmet1/deserthelmet1",
+			"weight": 1,
+			"textures": {
+				"material": "sand:entity/humanoid/sandy/head/deserthelmet1/deserthelmet1"
+			}
+		},
+		"body-fremen-robe": {
+			"base": "sand:entity/humanoid/seraph/sandy/armor/body/desertarmor1/desertarmor1",
+			"weight": 1,
+			"textures": {
+				"material": "sand:entity/humanoid/sandy/body/desertarmor1/desertarmor1",
+				"cloakmaterial": "sand:entity/humanoid/sandy/cloaks/desertcloak1/desertcloak1"
+			}
+		},
+		"legs-fremen-1": {
+			"base": "sand:entity/humanoid/seraph/sandy/armor/legs/desertpants1/desertpants1",
+			"weight": 1,
+			"textures": {
+				"material": "sand:entity/humanoid/sandy/legs/desertpants1/desertpants1"
+			}
+		},
+		"legs-fremen-2": {
+			"base": "sand:entity/humanoid/seraph/sandy/armor/legs/desertpants3/desertpants3",
+			"weight": 1,
+			"textures": {
+				"material": "sand:entity/humanoid/sandy/legs/desertpants3/desertpants3"
+			}
+		}
+	},
+
+	"bySlot": [
+		{ "code": "head", "variants": ["head-fremen-hood"] },
+		{ "code": "body", "variants": ["body-fremen-robe"] },
+		{ "code": "legs", "variants": ["legs-fremen-1", "legs-fremen-2"] }
+	]
+}

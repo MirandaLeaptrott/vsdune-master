@@ -1,0 +1,14 @@
+[
+	{
+		"op": "replace",
+		"path": "/drawtypeByType",
+		"value": { "*": "Empty" },
+		"file": "game:blocktypes/meta.json"
+	},
+	{
+		"op": "replace",
+		"path": "/replaceable",
+		"value": 9999,
+		"file": "game:blocktypes/meta.json"
+	}
+]

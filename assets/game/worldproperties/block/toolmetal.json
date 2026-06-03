@@ -1,0 +1,18 @@
+{
+	code: "toolmetal",
+	variants: [		
+		{ code: "bismuth" },
+		{ code: "bismuthbronze" },
+		{ code: "blackbronze" },
+		{ code: "brass" },
+		{ code: "copper" },
+		{ code: "gold" },
+		{ code: "iron" },
+		{ code: "meteoriciron" },
+		{ code: "lead" },
+		{ code: "molybdochalkos" },
+		{ code: "silver" },
+		{ code: "steel" },
+		{ code: "tinbronze" }
+	]
+}

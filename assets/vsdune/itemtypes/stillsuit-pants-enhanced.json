@@ -1,0 +1,39 @@
+{
+	"code": "stillsuit-pants-enhanced",
+	"shape": { "base": "vsdune:entity/wearable/stillsuit/stillsuit-pants" },
+	"textures": {
+		"stillsuit-pants": { "base": "vsdune:entity/stillsuit/stillsuit-pants" },
+		"seraph": { "base": "game:block/transparent" }
+	},
+	"behaviors": [
+		{ "name": "Wearable" }
+	],
+	"attributes": {
+		"clothescategory": "lowerbody",
+		"wearableAttachment": true,
+		"warmth": 0,
+		"cooling": 0,
+		"stillsuitWaterMax": 200,
+		"handbook": {
+			"groupBy": ["stillsuit-*"]
+		}
+	},
+	"storageFlags": 128,
+	"creativeinventory": { "general": ["*"], "items": ["*"], "clothing": ["*"] },
+	"renderAlphaTest": 0.25,
+	"durability": 3000,
+	"maxStackSize": 1,
+	"heldTpIdleAnimation": "holdunderarm",
+	"tpHandTransform": {
+		"translation": { "x": -0.6, "y": -0.9, "z": -0.7 },
+		"rotation": { "x": -71, "y": 180, "z": 83 },
+		"scale": 0.55
+	},
+	"guiTransform": {
+		"rotate": false,
+		"translation": { "x": 0, "y": 0, "z": 0 },
+		"rotation": { "x": -173, "y": -79, "z": 38 },
+		"origin": { "x": 0.5, "y": 0.63, "z": 0.6 },
+		"scale": 1.4
+	}
+}

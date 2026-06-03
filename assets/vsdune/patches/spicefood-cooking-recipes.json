@@ -1,0 +1,208 @@
+[
+	{
+		"file": "game:recipes/cooking/meatystew.json",
+		"op": "addeach",
+		"path": "/ingredients/0/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-meat",       "shapeElement": "bowl/meat stew/*", "textureMapping": ["meat", "group6"] },
+			{ "type": "item", "code": "vsdune:spicefood-fishfillet", "shapeElement": "bowl/meat stew/*", "textureMapping": ["meat", "group6"] }
+		],
+		"side": "Universal"
+	},
+	// /ingredients/1/validStacks (egg-base): egg slot
+	{
+		"file": "game:recipes/cooking/meatystew.json",
+		"op": "addeach",
+		"path": "/ingredients/1/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-egg", "shapeElement": "bowl/egg/*" }
+		],
+		"side": "Universal"
+	},
+	// /ingredients/2/validStacks (egg-extra)
+	{
+		"file": "game:recipes/cooking/meatystew.json",
+		"op": "addeach",
+		"path": "/ingredients/2/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-egg", "shapeElement": "bowl/egg2/*" }
+		],
+		"side": "Universal"
+	},
+	// /ingredients/3/validStacks (meat-extra)
+	{
+		"file": "game:recipes/cooking/meatystew.json",
+		"op": "addeach",
+		"path": "/ingredients/3/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-meat",       "shapeElement": "bowl/red meat/*", "textureMapping": ["meat", "group2"] },
+			{ "type": "item", "code": "vsdune:spicefood-fishfillet", "shapeElement": "bowl/red meat/*", "textureMapping": ["meat", "group2"] }
+		],
+		"side": "Universal"
+	},
+	// /ingredients/4/validStacks (meat-extra2)
+	{
+		"file": "game:recipes/cooking/meatystew.json",
+		"op": "addeach",
+		"path": "/ingredients/4/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-meat",       "shapeElement": "bowl/red meat 2/*", "textureMapping": ["meat", "group2"] },
+			{ "type": "item", "code": "vsdune:spicefood-fishfillet", "shapeElement": "bowl/red meat 2/*", "textureMapping": ["meat", "group2"] }
+		],
+		"side": "Universal"
+	},
+	// /ingredients/5/validStacks (vegetable-base)
+	{
+		"file": "game:recipes/cooking/meatystew.json",
+		"op": "addeach",
+		"path": "/ingredients/5/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-vegetable", "shapeElement": "bowl/vegetable 1/*" }
+		],
+		"side": "Universal"
+	},
+	// /ingredients/6/validStacks (vegetable-extra)
+	{
+		"file": "game:recipes/cooking/meatystew.json",
+		"op": "addeach",
+		"path": "/ingredients/6/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-vegetable", "shapeElement": "bowl/vegetable 2/*" }
+		],
+		"side": "Universal"
+	},
+	// /ingredients/7/validStacks (fruit-extra)
+	{
+		"file": "game:recipes/cooking/meatystew.json",
+		"op": "addeach",
+		"path": "/ingredients/7/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-fruit", "shapeElement": "bowl/fruit 1/*" }
+		],
+		"side": "Universal"
+	},
+
+	// ===== vegetablestew =====
+	// Three vegetable slots all accept the same vegetable list.
+	{
+		"file": "game:recipes/cooking/vegetablestew.json",
+		"op": "addeach",
+		"path": "/ingredients/0/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-vegetable", "shapeElement": "bowl/vegetable 1/*" }
+		],
+		"side": "Universal"
+	},
+	{
+		"file": "game:recipes/cooking/vegetablestew.json",
+		"op": "addeach",
+		"path": "/ingredients/1/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-vegetable", "shapeElement": "bowl/vegetable 2/*" }
+		],
+		"side": "Universal"
+	},
+	{
+		"file": "game:recipes/cooking/vegetablestew.json",
+		"op": "addeach",
+		"path": "/ingredients/2/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-vegetable", "shapeElement": "bowl/vegetable 3/*" }
+		],
+		"side": "Universal"
+	},
+
+	// ===== porridge =====
+	// /0 = grain-base, /1+/2 = fruit-extra slots, /3 = vegetable-extra
+	{
+		"file": "game:recipes/cooking/porridge.json",
+		"op": "addeach",
+		"path": "/ingredients/0/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-grain", "shapeElement": "bowl/grain/*" }
+		],
+		"side": "Universal"
+	},
+	{
+		"file": "game:recipes/cooking/porridge.json",
+		"op": "addeach",
+		"path": "/ingredients/1/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-fruit", "shapeElement": "bowl/fruit 1/*" }
+		],
+		"side": "Universal"
+	},
+	{
+		"file": "game:recipes/cooking/porridge.json",
+		"op": "addeach",
+		"path": "/ingredients/2/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-fruit", "shapeElement": "bowl/fruit 2/*" }
+		],
+		"side": "Universal"
+	},
+	{
+		"file": "game:recipes/cooking/porridge.json",
+		"op": "addeach",
+		"path": "/ingredients/3/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-vegetable", "shapeElement": "bowl/vegetable 1/*" }
+		],
+		"side": "Universal"
+	},
+
+	// ===== soup =====
+	// /0 = stock (water only, skip), /1 = vegetable-base
+	{
+		"file": "game:recipes/cooking/soup.json",
+		"op": "addeach",
+		"path": "/ingredients/1/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-vegetable", "shapeElement": "bowl/vegetable base 1/*" }
+		],
+		"side": "Universal"
+	},
+
+	// ===== scrambledeggs =====
+	// Three egg slots, all accept egg-chicken-raw vanilla. Add spicefood-egg
+	// to each so spice can substitute for chicken eggs.
+	{
+		"file": "game:recipes/cooking/scrambledeggs.json",
+		"op": "addeach",
+		"path": "/ingredients/0/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-egg", "shapeElement": "bowl/egg1/*", "textureMapping": ["scrambledegg", "group7"] }
+		],
+		"side": "Universal"
+	},
+	{
+		"file": "game:recipes/cooking/scrambledeggs.json",
+		"op": "addeach",
+		"path": "/ingredients/1/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-egg", "shapeElement": "bowl/egg2/*", "textureMapping": ["scrambledegg", "group7"] }
+		],
+		"side": "Universal"
+	},
+	{
+		"file": "game:recipes/cooking/scrambledeggs.json",
+		"op": "addeach",
+		"path": "/ingredients/2/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-egg", "shapeElement": "bowl/egg3/*", "textureMapping": ["scrambledegg", "group7"] }
+		],
+		"side": "Universal"
+	},
+
+	// ===== jam =====
+	// /0 = sweetener (honey only, skip), /1 = fruit
+	{
+		"file": "game:recipes/cooking/jam.json",
+		"op": "addeach",
+		"path": "/ingredients/1/validStacks/-",
+		"value": [
+			{ "type": "item", "code": "vsdune:spicefood-fruit", "shapeElement": "bowl/fruit" }
+		],
+		"side": "Universal"
+	}
+]

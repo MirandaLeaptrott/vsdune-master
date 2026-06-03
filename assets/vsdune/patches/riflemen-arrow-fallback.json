@@ -1,0 +1,22 @@
+[
+
+	// === fremen-archer (aitasks[4]) ===
+	{ "file": "vsdune:entities/humanoids/fremen/yeoman-archer.json", "op": "replace", "path": "/server/behaviors/9/aitasks/4/projectileItem", "value": "arrow-copper", "side": "Server", "dependsOn": [{ "modid": "maltiezfirearms", "invert": true }] },
+	{ "file": "vsdune:entities/humanoids/fremen/yeoman-archer.json", "op": "remove",  "path": "/server/behaviors/9/aitasks/4/shootSound",                                "side": "Server", "dependsOn": [{ "modid": "maltiezfirearms", "invert": true }] },
+
+	// === harkonnen-rifleman (aitasks[3]) ===
+	{ "file": "vsdune:entities/humanoids/harkonnen/deserter-archer.json", "op": "replace", "path": "/server/behaviors/9/aitasks/3/projectileItem", "value": "arrow-copper", "side": "Server", "dependsOn": [{ "modid": "maltiezfirearms", "invert": true }] },
+	{ "file": "vsdune:entities/humanoids/harkonnen/deserter-archer.json", "op": "remove",  "path": "/server/behaviors/9/aitasks/3/shootSound",                                "side": "Server", "dependsOn": [{ "modid": "maltiezfirearms", "invert": true }] },
+
+	// === scavenger-sniper hunting (aitasks[2]) ===
+	{ "file": "vsdune:entities/humanoids/scavenger/poacher-archer.json", "op": "replace", "path": "/server/behaviors/9/aitasks/2/projectileItem", "value": "arrow-copper", "side": "Server", "dependsOn": [{ "modid": "maltiezfirearms", "invert": true }] },
+	{ "file": "vsdune:entities/humanoids/scavenger/poacher-archer.json", "op": "remove",  "path": "/server/behaviors/9/aitasks/2/shootSound",                                "side": "Server", "dependsOn": [{ "modid": "maltiezfirearms", "invert": true }] },
+
+	// === scavenger-sniper combat (aitasks[3]) ===
+	{ "file": "vsdune:entities/humanoids/scavenger/poacher-archer.json", "op": "replace", "path": "/server/behaviors/9/aitasks/3/projectileItem", "value": "arrow-copper", "side": "Server", "dependsOn": [{ "modid": "maltiezfirearms", "invert": true }] },
+	{ "file": "vsdune:entities/humanoids/scavenger/poacher-archer.json", "op": "remove",  "path": "/server/behaviors/9/aitasks/3/shootSound",                                "side": "Server", "dependsOn": [{ "modid": "maltiezfirearms", "invert": true }] },
+
+	// === smuggler-rifleman (aitasks[3]) ===
+	{ "file": "vsdune:entities/humanoids/smuggler/smuggler-rifleman.json", "op": "replace", "path": "/server/behaviors/9/aitasks/3/projectileItem", "value": "arrow-copper", "side": "Server", "dependsOn": [{ "modid": "maltiezfirearms", "invert": true }] },
+	{ "file": "vsdune:entities/humanoids/smuggler/smuggler-rifleman.json", "op": "remove",  "path": "/server/behaviors/9/aitasks/3/shootSound",                                "side": "Server", "dependsOn": [{ "modid": "maltiezfirearms", "invert": true }] }
+]

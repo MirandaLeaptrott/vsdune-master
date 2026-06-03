@@ -1,0 +1,65 @@
+{
+	code: "spice",
+	class: "ItemSpice",
+	variantgroups: [
+		{ code: "type", states: ["unprocessed"] },
+		{ code: "wetness", states: ["wet", "dry"] }
+	],
+
+	nutritionPropsByType: {
+		"*-dry": {
+			"foodcategory": "Vegetable",
+			"satiety": 40,
+			"health": 0,
+			"intoxication": 0,
+			"psychedelic": 1.5
+		},
+		"*-wet": {
+			"foodcategory": "Vegetable",
+			"satiety": 25,
+			"health": 0,
+			"intoxication": 0,
+			"psychedelic": 0.7
+		}
+	},
+	shape: { base: "game:item/resource/clayraw" },
+	texturesByType: {
+		"*-wet": { clay: { base: "sand/spicesand" } },
+		"*-dry": { clay: { base: "sand/spicesanddry" } }
+	},
+	maxstacksize: 64,
+	creativeinventory: { "general": ["*"], "items": ["*"] },
+	attributes: {
+		handbook: {
+			groupBy: ["spice-*"]
+		}
+	},
+
+	transitionablePropsByType: {
+		"*-wet": [
+			{
+				type: "Perish",
+				freshHours: { avg: 6 },
+				transitionHours: { avg: 0.1 },
+				transitionedStack: { type: "item", code: "vsdune:spice-unprocessed-dry" },
+				transitionRatio: 1
+			}
+		]
+	},
+	guiTransform: {
+		rotation: { x: 142, y: -35, z: 0 },
+		origin: { x: 0.48, y: 0.09, z: 0.5 },
+		scale: 2.2
+	},
+	tpHandTransform: {
+		translation: { x: -2.08, y: -1.24, z: -1.22 },
+		rotation: { x: -31, y: 11, z: -98 },
+		scale: 0.38
+	},
+	groundTransform: {
+		translation: { x: 0, y: 0.17, z: 0 },
+		rotation: { x: -1, y: 0, z: 0 },
+		origin: { x: 0.5, y: 0.17, z: 0.5 },
+		scale: 5
+	}
+}

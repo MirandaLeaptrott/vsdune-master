@@ -1,0 +1,17 @@
+{
+	"code": "ingot-duraluminum",
+	"class": "Item",
+	"shape": { "base": "game:item/resource/ingot" },
+	"textures": {
+		"ingot": { "base": "game:item/resource/ingot/steel" }
+	},
+	"materialDensity": 2800,
+	"maxStackSize": 16,
+	"creativeinventory": { "general": ["*"], "items": ["*"] },
+	"attributes": {
+		"handbook": {
+			"groupBy": ["ingot-duraluminum"]
+		},
+		"metalIngot": true
+	}
+}

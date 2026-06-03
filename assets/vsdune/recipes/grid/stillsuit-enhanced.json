@@ -1,0 +1,26 @@
+[
+	{
+
+		"ingredientPattern": "PLP	LSL	PLP",
+		"ingredients": {
+			"P": { "type": "item", "code": "vsdune:spice-unprocessed-dry" },
+			"L": { "type": "item", "code": "game:leather-normal-*" },
+			"S": { "type": "item", "code": "vsdune:stillsuit-top" }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:stillsuit-top-enhanced", "quantity": 1 }
+	},
+	{
+
+		"ingredientPattern": "PLP	LSL	PLP",
+		"ingredients": {
+			"P": { "type": "item", "code": "vsdune:spice-unprocessed-dry" },
+			"L": { "type": "item", "code": "game:leather-normal-*" },
+			"S": { "type": "item", "code": "vsdune:stillsuit-pants" }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:stillsuit-pants-enhanced", "quantity": 1 }
+	}
+]

@@ -1,0 +1,65 @@
+[
+	{
+		"ingredientPattern": " S \tSSS\t S ",
+		"ingredients": {
+			"S": { "type": "item", "code": "vsdune:spice-unprocessed-*", "name": "wetness", "allowedVariants": ["wet", "dry"] }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:spicefood-meat", "quantity": 1 }
+	},
+	{
+		"ingredientPattern": " S \tSSS\t S ",
+		"ingredients": {
+			"S": { "type": "item", "code": "vsdune:spice-unprocessed-*", "name": "wetness", "allowedVariants": ["wet", "dry"] }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:spicefood-vegetable", "quantity": 1 }
+	},
+	{
+		"ingredientPattern": " S \tSSS\t S ",
+		"ingredients": {
+			"S": { "type": "item", "code": "vsdune:spice-unprocessed-*", "name": "wetness", "allowedVariants": ["wet", "dry"] }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:spicefood-grain", "quantity": 1 }
+	},
+	{
+		"ingredientPattern": " S \tSSS\t S ",
+		"ingredients": {
+			"S": { "type": "item", "code": "vsdune:spice-unprocessed-*", "name": "wetness", "allowedVariants": ["wet", "dry"] }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:spicefood-fruit", "quantity": 1 }
+	},
+	{
+		"ingredientPattern": " S \tSSS\t S ",
+		"ingredients": {
+			"S": { "type": "item", "code": "vsdune:spice-unprocessed-*", "name": "wetness", "allowedVariants": ["wet", "dry"] }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:spicefood-egg", "quantity": 1 }
+	},
+	{
+		"ingredientPattern": " S \tSSS\t S ",
+		"ingredients": {
+			"S": { "type": "item", "code": "vsdune:spice-unprocessed-*", "name": "wetness", "allowedVariants": ["wet", "dry"] }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:spicefood-fishfillet", "quantity": 1 }
+	},
+	{
+		"ingredientPattern": " S \tSSS\t S ",
+		"ingredients": {
+			"S": { "type": "item", "code": "vsdune:spice-unprocessed-*", "name": "wetness", "allowedVariants": ["wet", "dry"] }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:spicefiber", "quantity": 1 }
+	}
+]

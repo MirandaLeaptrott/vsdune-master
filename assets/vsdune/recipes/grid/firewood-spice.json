@@ -1,0 +1,22 @@
+[
+	{
+		"ingredientPattern": "A	L",
+		"ingredients": {
+			"A": { "type": "item", "tags": ["tool-axe"], "isTool": true },
+			"L": { "type": "block", "code": "vsdune:spice-log" }
+		},
+		"width": 1,
+		"height": 2,
+		"output": { "type": "item", "code": "game:firewood", "quantity": 4 }
+	},
+	{
+		"ingredientPattern": "SS	P_",
+		"ingredients": {
+			"S": { "type": "item", "code": "game:stick" },
+			"P": { "type": "item", "code": "vsdune:spice-unprocessed-*", "name": "wetness", "allowedVariants": ["wet", "dry"] }
+		},
+		"width": 2,
+		"height": 2,
+		"output": { "type": "item", "code": "game:firewood", "quantity": 2 }
+	}
+]

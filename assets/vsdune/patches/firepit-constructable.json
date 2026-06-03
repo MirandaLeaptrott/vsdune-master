@@ -1,0 +1,4 @@
+[
+	{ "file": "game:itemtypes/resource/stick.json",     "op": "addmerge", "path": "/attributes", "value": { "firepitConstructable": true }, "side": "Universal" },
+	{ "file": "game:itemtypes/resource/drygrass.json",  "op": "addmerge", "path": "/attributes", "value": { "firepitConstructable": true }, "side": "Universal" }
+]

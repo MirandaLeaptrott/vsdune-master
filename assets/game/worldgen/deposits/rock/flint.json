@@ -1,0 +1,32 @@
+[
+	{
+		code: "flint",
+		// Flint deposits
+		triesPerChunk: 1.5,
+		generator:  "disc-followsurface",
+		attributes: {	
+			inblock: { code: "rock-*", name: "rock", allowedVariants: ["sandstone", "shale", "claystone", "chalk", "limestone"] },
+			placeblock: { code: "ore-flint-{rock}" },
+			surfaceBlock: { code: "looseflints-{rock}-free" },
+			surfaceBlockChance: 0.1,
+			radius: { dist: "uniform", avg: 3.5, var: 2 },
+			yPosRel: {dist: "uniform", avg: 0.97, var: 0.03 },
+			thickness: { dist: "stronginvexp", avg: 1, var: 1 }
+		}
+	},
+	{
+		code: "flint",
+		// rare large deposits in chalk and limestone
+		triesPerChunk: 0.05,
+		generator:  "disc-followsurface",
+		attributes: {	
+			inblock: { code: "rock-*", name: "rock", allowedVariants: ["chalk", "limestone"] },
+			placeblock: { code: "ore-flint-{rock}" },
+			surfaceBlock: { code: "looseflints-{rock}-free" },
+			surfaceBlockChance: 0.1,
+			radius: { dist: "uniform", avg: 7, var: 3 },
+			yPosRel: {dist: "uniform", avg: 0.97, var: 0.03 },
+			thickness: { dist: "stronginvexp", avg: 1, var: 1 }
+		}
+	}
+]

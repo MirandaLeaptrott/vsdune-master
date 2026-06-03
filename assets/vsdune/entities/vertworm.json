@@ -1,0 +1,61 @@
+{
+
+	"code": "vertworm",
+	"class": "VertwormEntity",
+	"hitboxSize": { "x": 4.0, "y": 6.0 },
+	"deadHitboxSize": { "x": 4.0, "y": 6.0 },
+	"eyeHeight": 5.0,
+	"weight": 4000,
+	"canClimb": false,
+	"knockbackResistance": 1.0,
+	"attributes": {
+		"handbook": { "disable": true }
+	},
+	"client": {
+		"renderer": "Shape",
+		"shape": { "base": "vsdune:worm" },
+		"texture": { "base": "game:block/creature/gore-old" },
+		"glowLevel": 0,
+		"size": 1.0,
+		"sizeForCulling": 30,
+		"behaviors": [
+			{ "code": "interpolateposition" }
+		],
+		"animations": [
+			{
+				"code": "mouthopen",
+				"animation": "mouthopen",
+				"animationSpeed": 1.0,
+				"weight": 10,
+				"blendMode": "Average"
+			},
+			{
+				"code": "horizontaltravel",
+				"animation": "horizontaltravel",
+				"animationSpeed": 1.0,
+				"weight": 10,
+				"blendMode": "Average"
+			},
+			{
+				"code": "horizontalattack",
+				"animation": "horizontalattack",
+				"animationSpeed": 1.0,
+				"weight": 10,
+				"blendMode": "Average"
+			}
+		]
+	},
+	"server": {
+		"behaviors": [
+			{ "code": "vsdune.vertwormai" }
+		],
+		"spawnConditions": {
+			"runtime": {
+				"group": "hostile",
+				"chance": 0,
+				"maxQuantity": 0
+			}
+		}
+	},
+	"sounds": {}
+}

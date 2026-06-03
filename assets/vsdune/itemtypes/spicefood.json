@@ -1,0 +1,65 @@
+{
+
+	code: "spicefood",
+	maxstacksize: 64,
+	behaviors: [
+		{ name: "GroundStorable", properties: { layout: 'Quadrants', collisionBox: { x1: 0, y1: 0, z1: 0, x2: 1, y2: 0.125, z2: 1 } } }
+	],
+	variantgroups: [
+		{ code: "type", states: ["meat", "vegetable", "grain", "fruit", "egg", "fishfillet"] }
+	],
+	shape: { base: "game:item/resource/clayraw" },
+	textures: {
+		clay: { base: "sand/spicesanddry" }
+	},
+	creativeinventory: { "general": ["*"], "items": ["*"] },
+	attributes: {
+		handbook: {
+			groupBy: ["spicefood-*"]
+		},
+
+		foodTagsByType: {
+			"*-meat": ["meat"],
+			"*-vegetable": ["vegetable"],
+			"*-grain": ["grain"],
+			"*-fruit": ["fruit"],
+			"*-egg": ["egg"],
+			"*-fishfillet": ["meat"]
+		}
+	},
+
+	nutritionPropsByType: {
+		"*-meat":       { satiety: 220, foodcategory: "Protein" },
+		"*-vegetable":  {  satiety: 80, foodcategory: "Vegetable" },
+		"*-grain":      {  satiety: 90, foodcategory: "Grain" },
+		"*-fruit":      {  satiety: 60, foodcategory: "Fruit" },
+		"*-egg":        {  satiety: 90, foodcategory: "Protein" },
+		"*-fishfillet": { satiety: 220, foodcategory: "Protein" }
+	},
+
+	attributesByType: {
+		"*-meat":       { nutritionPropsWhenInMeal: { satiety: 380, foodcategory: "Protein" } },
+		"*-vegetable":  { nutritionPropsWhenInMeal: { satiety: 200, foodcategory: "Vegetable" } },
+		"*-grain":      { nutritionPropsWhenInMeal: { satiety: 220, foodcategory: "Grain" } },
+		"*-fruit":      { nutritionPropsWhenInMeal: { satiety: 140, foodcategory: "Fruit" } },
+		"*-egg":        { nutritionPropsWhenInMeal: { satiety: 200, foodcategory: "Protein" } },
+		"*-fishfillet": { nutritionPropsWhenInMeal: { satiety: 380, foodcategory: "Protein" } }
+	},
+	materialDensity: 600,
+	guiTransform: {
+		rotation: { x: 142, y: -35, z: 0 },
+		origin: { x: 0.48, y: 0.09, z: 0.5 },
+		scale: 2.2
+	},
+	tpHandTransform: {
+		translation: { x: -2.08, y: -1.24, z: -1.22 },
+		rotation: { x: -31, y: 11, z: -98 },
+		scale: 0.38
+	},
+	groundTransform: {
+		translation: { x: 0, y: 0.17, z: 0 },
+		rotation: { x: -1, y: 0, z: 0 },
+		origin: { x: 0.5, y: 0.17, z: 0.5 },
+		scale: 5
+	}
+}

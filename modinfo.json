@@ -1,0 +1,17 @@
+{
+    "type": "code",
+    "modid": "vsdune",
+    "name": "VSDune",
+    "side": "universal",
+    "authors": [
+        "MiraLeaps"
+    ],
+    "description": "Arrakis. Spice, sand, sandworms, the Fremen way. Vintage Story takes a desert pilgrimage.",
+    "version": "0.1.0",
+    "dependencies": {
+        "game": "*",
+        "sand": "*",
+        "hydrateordiedrate": "*",
+        "edeninstinct": "*"
+    }
+}

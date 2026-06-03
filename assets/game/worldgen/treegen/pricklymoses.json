@@ -1,0 +1,36 @@
+{
+	treeWorldPropertyCode: "pricklymoses",
+	sizeMultiplier: 0.25,
+	trunks: [{
+		widthloss: 0.045,
+		dieAt: { avg: 0.001 },
+		branchStart: { avg: 0.3, var: 0.12 },
+		branchSpacing: { dist: "gaussian", avg: 0.2, var: 0.1 },
+		branchVerticalAngle:  { avg: 1.8, var: 0 },
+		branchHorizontalAngle: { avg: 0, var: 3.1415 },
+		branchWidthMultiplierEvolve: { transform: "linear", factor: 1 },
+		branchWidthMultiplier: { avg: 1, var: 0 },
+		branchQuantity: { avg: 3, var: 0 },
+		angleVert: { avg: 0, var: 0.5 }
+	}],
+	branches: [{
+		widthLoss: 0.1,
+		gravityDrag: 0,
+		dieAt: { avg: 0.001 },
+		branchStart:  { avg: 2, var: 0.01 },
+	}],
+	treeBlocks: {
+		logBlockCode: "log-grown-acacia-ud",
+		// VSDune: every leaf placed is the branchy variant (with sticks),
+		// not just the inner-canopy ones. Vanilla's separate leaves /
+		// leavesbranchy split makes most of an acacia shrub's foliage
+		// non-stick-droppable, which is the only practical wood source
+		// on Arrakis. Pointing both fields at leavesbranchy-grown-acacia
+		// guarantees a player who breaks the whole shrub gets sticks
+		// from every leaf block, not just the few near the trunk.
+		leavesBlockCode: "leavesbranchy-grown-acacia",
+		leavesBranchyBlockCode: "leavesbranchy-grown-acacia",
+		vinesBlockCode: "wildvine-section-north",
+		vinesEndBlockCode: "wildvine-end-north", mossDecorCode: "attachingplant-spottymoss"
+	}
+}

@@ -1,0 +1,8 @@
+[
+	{ "file": "game:blocktypes/plant/fruitingbush.json", "op": "replace", "path": "/attributes/growthProperties/pauseGrowthBelowTemperature", "value": -50, "side": "Universal" },
+	{ "file": "game:blocktypes/plant/fruitingbush.json", "op": "replace", "path": "/attributes/growthProperties/pauseGrowthAboveTemperature", "value": 55, "side": "Universal" },
+	{ "file": "game:blocktypes/plant/fruitingbush.json", "op": "replace", "path": "/attributes/growthProperties/resetGrowthBelowTemperature", "value": -50, "side": "Universal" },
+	{ "file": "game:blocktypes/plant/fruitingbush.json", "op": "replace", "path": "/attributes/growthProperties/resetGrowthAboveTemperature", "value": 65, "side": "Universal" },
+	{ "file": "game:blocktypes/plant/fruitingbush.json", "op": "replace", "path": "/attributes/growthProperties/goDormantBelowTemperatureByType/*currant-*", "value": -50, "side": "Universal" },
+	{ "file": "game:blocktypes/plant/fruitingbush.json", "op": "replace", "path": "/attributes/growthProperties/leaveDormantAboveTemperatureByType/*currant-*", "value": -40, "side": "Universal" }
+]

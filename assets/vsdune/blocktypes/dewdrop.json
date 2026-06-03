@@ -1,0 +1,39 @@
+{
+	// VSDune dewdrop. Placed above eligible plants (tallgrass, branchy
+	// acacia leaves) by GenDewSystem at dawn. Right-click to drink the
+	// dew: BlockDewdrop applies hydration via the Hydrate-or-Diedrate
+	// `thirst` entity behavior (soft-coupled via reflection, no-op if
+	// HoD isn't loaded) and removes the block.
+	//
+	// Replaceable 9000 so it never blocks player building or worldgen
+	// placement. No collision and tiny selection box so it's easy to
+	// walk past without breaking, easy to right-click when you want it.
+	"code": "dewdrop",
+	"class": "BlockDewdrop",
+	"shape": { "base": "vsdune:block/dewdrop" },
+	"drawtype": "JSON",
+	"textures": {
+		"all": { "base": "game:block/glass/blue" }
+	},
+	"renderpass": "Transparent",
+	"blockmaterial": "Plant",
+	"lightAbsorption": 0,
+	"replaceable": 9000,
+	"resistance": 0,
+	"sideopaque": { "all": false },
+	"sidesolid": { "all": false },
+	"collisionbox": null,
+	"selectionbox": { "x1": 0.3, "y1": 0, "z1": 0.3, "x2": 0.7, "y2": 0.2, "z2": 0.7 },
+	"sounds": {
+		"place": "game:block/water-place",
+		"break": "game:block/water-place",
+		"hit": "game:block/water-place"
+	},
+	"creativeinventory": { "general": ["*"] },
+	"drops": [],
+	"attributes": {
+		// Hydration per drink, against HoD MaxThirst ~1500. 30 is a
+		// small but noticeable refresh (~2% of the bar).
+		"hydration": 30
+	}
+}

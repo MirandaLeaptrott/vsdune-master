@@ -1,0 +1,6 @@
+[
+	{ "file": "game:entities/animal/mammal/hare-adult.json", "op": "replace", "path": "/server/spawnconditionsByType/*-cape-adult-male/worldgen/TriesPerChunk", "value": { "avg": 0.02, "var": 0 }, "side": "Server" },
+	{ "file": "game:entities/animal/mammal/hare-adult.json", "op": "remove",  "path": "/server/spawnconditionsByType/*-cape-adult-male/climate/minRain",            "side": "Server" },
+	{ "file": "game:entities/animal/mammal/hare-adult.json", "op": "remove",  "path": "/server/spawnconditionsByType/*-cape-adult-male/climate/maxRain",            "side": "Server" },
+	{ "file": "game:entities/animal/mammal/hare-adult.json", "op": "remove",  "path": "/server/spawnconditionsByType/*-cape-adult-male/climate/minForestOrShrubs",  "side": "Server" }
+]

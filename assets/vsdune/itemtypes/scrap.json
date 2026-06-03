@@ -1,0 +1,15 @@
+{
+	"code": "scrap",
+	"class": "Item",
+	"shape": { "base": "game:item/resource/nugget" },
+	"textures": {
+		"nugget": { "base": "game:item/resource/metalbits/iron" }
+	},
+	"maxStackSize": 64,
+	"creativeinventory": { "general": ["*"], "items": ["*"] },
+	"attributes": {
+		"handbook": {
+			"groupBy": ["scrap"]
+		}
+	}
+}

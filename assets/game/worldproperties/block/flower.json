@@ -1,0 +1,51 @@
+{
+	"code": "flower",
+	"variants": [
+		{
+			code: "catmint"
+		},
+		{
+			code: "cornflower"
+		},
+		{
+			code: "forgetmenot"
+		},
+		{
+			code: "edelweiss"
+		},
+		{
+			code: "heather"
+		},
+		{
+			code: "horsetail"
+		},
+		{
+			code: "orangemallow"
+		},
+		{
+			code: "wilddaisy"
+		},
+		{
+			code: "westerngorse"
+		},
+		{
+			code: "cowparsley"
+		},
+		{
+			code: "goldenpoppy"
+		},
+		{
+			code: "lilyofthevalley"
+		},
+		{
+			code: "woad"
+		},
+		{ code: "redtopgrass" },
+		{ code: "bluebell" },
+		{ code: "ghostpipewhite" },
+		{ code: "ghostpipepink" },
+		{ code: "ghostpipered" },
+		{ code: "daffodil" },
+		{ code: "mugwort" },		
+	]
+}

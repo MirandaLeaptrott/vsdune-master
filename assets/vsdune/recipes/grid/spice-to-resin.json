@@ -1,0 +1,12 @@
+[
+	{
+
+		"ingredientPattern": "PPP	PPP	PP_",
+		"ingredients": {
+			"P": { "type": "item", "code": "vsdune:spice-unprocessed-dry" }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "game:resin", "quantity": 1 }
+	}
+]

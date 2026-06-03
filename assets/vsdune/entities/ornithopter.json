@@ -1,0 +1,99 @@
+{
+
+	"code": "ornithopter",
+	"class": "EntityOrnithopter",
+	"tags": ["inanimate", "vehicle"],
+	"hitboxSize": { "x": 8.0, "y": 4.0 },
+	"deadHitboxSize": { "x": 8.0, "y": 4.0 },
+	"eyeHeight": 2.0,
+	"canClimb": false,
+	"attributes": {
+		"ornithopter": true
+	},
+	"drops": [],
+	"behaviorConfigs": {
+		"rideableaccessories": {
+
+			"dropContentsOnDeath": true,
+			"wearableSlots": [
+				{ "code": "PilotAP",     "forCategoryCodes": [] },
+				{ "code": "Passenger2AP", "forCategoryCodes": [] },
+				{ "code": "Passenger3AP", "forCategoryCodes": [] },
+				{ "code": "Passenger4AP", "forCategoryCodes": [] },
+				{ "code": "Passenger5AP", "forCategoryCodes": [] },
+				{
+					"code": "Cargo",
+					"forCategoryCodes": ["chest", "basket", "crate", "ropetiepost"],
+					"attachmentPointcode": "CargoAP",
+					"stepParentTo": {
+						"": { "elementName": "cargospot" }
+					}
+				},
+
+
+				{
+					"code": "ControlPanel",
+					"forCategoryCodes": ["ornithoptercontrolkey"],
+					"attachmentPointcode": "ControlPanelAP",
+					"stepParentTo": {
+						"": { "elementName": "controlpanel2" }
+					}
+				}
+			]
+		},
+		"selectionboxes": {
+			"selectionBoxes": ["PilotAP", "Passenger2AP", "Passenger3AP", "Passenger4AP", "Passenger5AP", "CargoAP", "ControlPanelAP"]
+		},
+		"creaturecarrier": {
+
+			"seats": [
+				{ "apName": "PilotAP",      "selectionBox": "PilotAP",      "controllable": true,  "angleMode": "Unaffected", "bodyYawLimit": 0.4, "eyeHeight": 1.0, "riderOffset": { "x": -0.5, "y": -0.2, "z": 0 } },
+				{ "apName": "Passenger2AP", "selectionBox": "Passenger2AP", "controllable": false, "angleMode": "Unaffected", "bodyYawLimit": 0.6, "eyeHeight": 1.0, "riderOffset": { "x": -0.5, "y": -0.2, "z": 0 } },
+				{ "apName": "Passenger3AP", "selectionBox": "Passenger3AP", "controllable": false, "angleMode": "Unaffected", "bodyYawLimit": 0.6, "eyeHeight": 1.0, "riderOffset": { "x": -0.5, "y": -0.2, "z": 0 } },
+				{ "apName": "Passenger4AP", "selectionBox": "Passenger4AP", "controllable": false, "angleMode": "Unaffected", "bodyYawLimit": 0.6, "eyeHeight": 1.0, "riderOffset": { "x": -0.5, "y": -0.2, "z": 0 } },
+				{ "apName": "Passenger5AP", "selectionBox": "Passenger5AP", "controllable": false, "angleMode": "Unaffected", "bodyYawLimit": 0.6, "eyeHeight": 1.0, "riderOffset": { "x": -0.5, "y": -0.2, "z": 0 } }
+			]
+		}
+	},
+	"client": {
+		"renderer": "Shape",
+		"shape": { "base": "vsdune:simpelerthopter" },
+		"size": 1.0,
+		"behaviors": [
+			{ "code": "interpolateposition" },
+			{ "code": "selectionboxes" },
+			{ "code": "rideableaccessories" },
+			{ "code": "creaturecarrier" },
+			{ "code": "vsdune.ornithoptersound" }
+		],
+		"animations": [
+
+			{ "code": "flight",                       "animation": "flight",                       "animationSpeed": 1.2, "blendMode": "Average" },
+			{ "code": "flightdive1",                  "animation": "flightdive1",                  "animationSpeed": 1.0, "blendMode": "Average" },
+			{ "code": "flightdive2",                  "animation": "flightdive2",                  "animationSpeed": 1.0, "blendMode": "Average" },
+			{ "code": "landedwingsstowed",            "animation": "landedwingsstowed",            "animationSpeed": 1.0, "blendMode": "Average" },
+			{ "code": "landedstartingup",             "animation": "landedstartingup",             "animationSpeed": 1.0, "blendMode": "Average" },
+			{ "code": "landeddeploywings",            "animation": "landeddeploywings",            "animationSpeed": 1.0, "blendMode": "Average" },
+			{ "code": "takingoff",                    "animation": "takingoff",                    "animationSpeed": 1.0, "blendMode": "Average" },
+			{ "code": "takingoff2",                   "animation": "takingoff2",                   "animationSpeed": 1.0, "blendMode": "Average" },
+			{ "code": "dooropen",                     "animation": "dooropen",                     "animationSpeed": 1.0, "blendMode": "Average" },
+			{ "code": "landedwingsstoweddoorclose",   "animation": "landedwingsstoweddoorclose",   "animationSpeed": 1.0, "blendMode": "Average" },
+			{ "code": "landedwingsstoweddooropen",    "animation": "landedwingsstoweddooropen",    "animationSpeed": 1.0, "blendMode": "Average", "supressDefaultAnimation": true },
+			{ "code": "landingshutdown",              "animation": "landingshutdown",              "animationSpeed": 1.0, "blendMode": "Average" },
+			{ "code": "landingapproach",              "animation": "landingapproach",              "animationSpeed": 1.0, "blendMode": "Average" },
+			{ "code": "landingfinal",                 "animation": "landingfinal",                 "animationSpeed": 1.0, "blendMode": "Average" },
+			{ "code": "landedwingsstoweddooropenfull","animation": "landedwingsstoweddooropenfull","animationSpeed": 1.0, "blendMode": "Average" },
+			{ "code": "landingstowwings",             "animation": "landingstowwings",             "animationSpeed": 1.0, "blendMode": "Average" }
+		]
+	},
+	"server": {
+		"behaviors": [
+			{ "code": "health", "currenthealth": 200, "maxhealth": 200 },
+			{ "code": "selectionboxes" },
+			{ "code": "rideableaccessories" },
+			{ "code": "creaturecarrier" },
+
+			{ "code": "vsdune.ornithopterflight" }
+		]
+	}
+}

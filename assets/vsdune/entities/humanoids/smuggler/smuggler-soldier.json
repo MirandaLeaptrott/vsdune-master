@@ -1,0 +1,364 @@
+{
+	code: "smuggler-soldier",
+	class: "EntityFactionUnit",
+	canClimb: true,
+	hitboxSize: { x: 0.6, y: 1.75 },
+	deadHitboxSize: { x: 0.75, y: 0.5 },
+	eyeHeight: 1.7,
+	attributes: {
+		reckless: false,
+		killedByInfoText: "deadcreature-eaten-smuggler-soldier",
+		factionCode: "smuggler",
+		outfitversion: 1
+	},
+
+	drops: [
+			{
+				type: "item",
+				code: "game:poultice-reed-horsetail",
+				quantity: { avg: 0.4, var: 0 }
+			},
+			{
+				type: "item",
+				code: "game:gear-rusty",
+				quantity: { avg: 0.33, var: 0 }
+			},
+			{
+				type: "item",
+				code: "game:nugget-nativecopper",
+				quantity: { avg: 0.125, var: 0.0 }
+			},
+			{
+				type: "item",
+				code: "game:nugget-nativesilver",
+				quantity: { avg: 0.025, var: 0.0 }
+			},
+			{
+				type: "item",
+				code: "game:nugget-nativegold",
+				quantity: { avg: 0.005, var: 0 }
+			},
+			{
+				type: "item",
+				code: "game:spear-generic-copper",
+				quantity: { avg: 0.05, var: 0.0 }
+			},
+			{
+				type: "item",
+				code: "vsdune:ornithopter-controlkey",
+				quantity: { avg: 0.02, var: 0.0 }
+			}
+	],
+	client: {
+		renderer: "Shape",
+		shape: {
+			base: "entity/land/deserter-footman-billhook", alternates: [ { base: "entity/land/deserter-footman-voulge" }, { base: "entity/land/deserter-footman-breachknife" }, { base: "entity/land/deserter-footman-awlpike" } ]
+		},
+		textures: {
+			"deserter": { base: "entity/bandit/deserter_footman1", alternates: [ { base: "entity/bandit/deserter_footman2" }, { base: "entity/bandit/deserter_footman3" }, { base: "entity/bandit/deserter_footman4" } ] }
+		},
+		behaviors: [
+			{ code: "repulseagents" },
+			{ code: "floatupwhenstuck", onlyWhenDead: true },
+			{ code: "controlledphysics", stepHeight: 1.1251 },
+			{ code: "harvestable" },
+			{ code: "interpolateposition" },
+			{ code: "vsdune.randomoutfit" },
+			{ code: "vsdune.handinventory" }
+		],
+		animations: [
+			{
+				code: "die",
+				animation: "die",
+				animationSpeed: 1.75,
+				weight: 10,
+				blendMode: "Average",
+				triggeredBy: { onControls: ["dead"] }
+			},
+			{
+				code: "hurt",
+				animation: "hurt",
+				animationSpeed: 2,
+				weight: 8,
+				blendMode: "AddAverage"
+			},
+			{
+				code: "wander",
+				animation: "walkspearshouldered",
+				blendMode: "Average",
+				easeInSpeed: 1.0,
+				easeOutSpeed: 1.0
+			},
+			{
+				code: "sprint",
+				animation: "sprint",
+				animationSpeed: 0.6,
+				mulWithWalkSpeed: true,
+				blendMode: "Average"
+			},
+			{
+				code: "melee",
+				animation: "attack",
+				weight: 10,
+				blendMode: "Add"
+			},
+			{
+				code: "look",
+				animation: "look",
+				easeOutSpeed: 0.5,
+				blendMode: "Add",
+				SupressDefaultAnimation: true
+			},
+			{
+				code: "walk",
+				animation: "walk",
+				blendMode: "Average"
+			},
+			{
+				code: "idleattackready",
+				animation: "idleattackready",
+				blendMode: "Add"
+			},
+			{
+				code: "engageentity",
+				animation: "walkattackready",
+				blendMode: "Average"
+			},
+			{
+				code: "idle",
+				animation: "idle",
+				blendMode: "AddAverage",
+				easeInSpeed: 1.0,
+				easeOutSpeed: 1.0,
+				triggeredBy: { defaultAnim: true }
+			}
+		]
+	},
+	server: {
+		behaviors: [
+			{ code: "repulseagents" },
+			{ code: "despawn", minPlayerDistance: 8, belowLightLevel: 8, minSeconds: 300 },
+			{ code: "controlledphysics", stepHeight: 1.1251 },
+			{ code: "deaddecay", hoursToDecay: 96, decayedBlock: "carcass-human" },
+			{ code: "floatupwhenstuck", onlyWhenDead: true },
+			{ code: "health", currenthealth: 16, maxhealth: 16 },
+			{ code: "harvestable", drops: [
+				{
+					type: "item",
+					code: "outlawhead-deserter-footman",
+					quantity: { avg: 1, var: 0 }
+				}
+				]
+			},
+			{ code: "breathe" },
+			{
+				code: "emotionstates",
+				states: [
+					{ code: "aggressiveondamage", duration: 7, chance: 1.00, slot: 0, priority: 2, accumType: "noaccum" }
+				]
+			},
+			{
+				code: "taskai",
+				aitasks: [
+					{
+						code: "reacttoprojectiles",
+						entityCodes: ["player", "harkonnen-*", "fremen-*"],
+						priority: 5.1
+					},
+					{
+						code: "morale",
+						priority: 5.0,
+						movespeed: 0.040,
+						cancelOnHurt: false,
+						routDistance: 30,
+						rallyTimeAfterRoutMs: 10000,
+						minMorale: 0.8,
+						maxMorale: 1.0,
+						moraleRange: 15,
+						useGroupMorale: true,
+						deathsImpactMorale: true,
+						canRoutFromAnyEnemy: true,
+
+						entitySourcesOfFear: [
+							{ code: "player",            fearWeight:   0.1 },
+							{ code: "smuggler-*",       fearWeight:  -0.1 },
+							{ code: "smuggler-officer", fearWeight: -10.0 },
+							{ code: "fremen-*",          fearWeight:   0.1 },
+							{ code: "smuggler-*",        fearWeight:   0.1 }
+						],
+						itemStackSourcesOfFear: [
+							{ code: "outlawhead-*",  fearWeight: 0.2 },
+							{ code: "headonspear-*", fearWeight: 0.2 }
+						],
+						poiSourcesOfFear: [
+							{ poiType: "outlawSpawnBlocker", fearWeight: 0.2 }
+						],
+
+						animation: "sprint",
+						animationSpeed: 1
+					},
+					{
+						code: "melee",
+						entityCodes: ["player", "drifter-*", "wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "humanoid-villager-*", "fremen-*", "harkonnen-*"],
+						priority: 4.0,
+						damage: 8.0,
+						damageTier: 2,
+						damageType: "PiercingAttack",
+						minDist: 3.5,
+						minVerDist: 2.5,
+						slot: 1,
+						mincooldown: 1500,
+						maxcooldown: 1500,
+						attackDurationMs: 450,
+						damagePlayerAtMs: 300,
+						animation: "attack",
+						animationSpeed: 1.0
+					},
+					{
+						code: "playanimationatrange",
+						entityCodes: ["player", "drifter-*", "wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "humanoid-villager-*", "fremen-*", "harkonnen-*"],
+						priority: 3.0,
+						priorityForCancel: 3.5,
+						minDist: 6,
+						minVerDist: 6,
+						cancelAnimations: ["attack", "sprint", "swim", "WalkSpearShouldered"],
+						slot: 1,
+						animation: "idleattackready",
+						animationSpeed: 1.0,
+						easeIn: 0.25,
+						easeOut: 0.0
+					},
+					{
+						code: "engageentity",
+						entityCodes: ["player", "drifter-*", "wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "humanoid-villager-*", "fremen-*", "harkonnen-*"],
+						priority: 2.5,
+					searchWaitMs: 2000,
+					maxFollowTime: 30,
+					noLOSTimeout: 8000,
+						mincooldown: 0,
+						maxcooldown: 0,
+						pursueSpeed: 0.035,
+						pursueRange: 70,
+						seekingRange: 70,
+						pursueAnimation: "sprint",
+						engageSpeed: 0.020,
+						engageRange: 8,
+						engageAnimation: "walkattackready",
+						animation: "walkattackready",
+
+						arriveRange: 2.5,
+						arriveVerticalRange: 1.0,
+
+						withdrawIfNoPath: true,
+						withdrawDist: 15.0,
+						withdrawDistDamaged: 40.0,
+						withdrawAnimation: "idle2",
+
+						swimAnimation: "swim",
+
+						animationSpeed: 1.0,
+						alarmHerd: true,
+						whenInEmotionState: "aggressiveondamage"
+					},
+					{
+						code: "engageentity",
+						entityCodes: ["player", "drifter-*", "wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "humanoid-villager-*", "fremen-*", "harkonnen-*"],
+						priority: 2.25,
+					searchWaitMs: 2000,
+					maxFollowTime: 30,
+					noLOSTimeout: 8000,
+						priorityForCancel: 2.5,
+						mincooldown: 0,
+						maxcooldown: 0,
+						pursueSpeed: 0.035,
+						pursueRange: 50,
+						seekingRange: 50,
+						pursueAnimation: "sprint",
+						engageSpeed: 0.020,
+						engageRange: 8,
+						engageAnimation: "walkattackready",
+						animation: "walkattackready",
+
+						arriveRange: 2.5,
+						arriveVerticalRange: 1.0,
+
+						withdrawIfNoPath: true,
+						withdrawDist: 15.0,
+						withdrawDistDamaged: 40.0,
+						withdrawAnimation: "idle2",
+
+						swimAnimation: "swim",
+
+						animationSpeed: 1.0,
+						alarmHerd: true
+					},
+					{
+						code: "getoutofwater",
+						priority: 2.0,
+						movespeed: 0.040,
+						animation: "swim",
+						animationSpeed: 0.3
+					},
+					{
+						code: "stayclosetoherd",
+						priority: 1.1,
+
+						movespeed: 0.006,
+						moveSpeedFarAway: 0.04,
+						moveNearAnimation: "WalkSpearShouldered",
+						moveFarAnimation: "sprint",
+
+						animationSpeed: 1.0,
+						maxDistance: 15,
+						searchRange: 25,
+						allowStrayFromHerdInCombat: true,
+						allowHerdConsolidation: true,
+						consolidationRange: 40,
+						consolidationEntityCodes: ["smuggler-*"]
+					},
+					{
+						code: "idle",
+						priority: 0.8,
+						minduration: 5000,
+						maxduration: 30000,
+						mincooldown: 2000,
+						maxcooldown: 120000,
+						priorityForCancel: 1.33,
+						animation: "look",
+						whenNotInEmotionState: "aggressiveondamage",
+						stopOnNearbyEntityCodes: ["player", "drifter-*", "wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "humanoid-villager-*", "fremen-*", "harkonnen-*"],
+						stopRange: 5
+					},
+					{
+						code: "wander",
+						priority: 0.5,
+						priorityForCancel: 1.35,
+						movespeed: 0.006,
+						minduration: 2500,
+						maxduration: 5000,
+						mincooldown: 5000,
+						maxcooldown: 10000,
+						animation: "WalkSpearShouldered",
+						preferredLightLevel: 20,
+						whenNotInEmotionState: "aggressiveondamage"
+					}
+				]
+			},
+			{ code: "vsdune.outlawarrakis" },
+			{ code: "vsdune.randomoutfit" },
+			{ code: "vsdune.handinventory" },
+			{ code: "vsdune.weaponspawn", itemCode: "game:blade-blackguard-iron" }
+		]
+	},
+	sounds: {
+		idle: "creature/bandit/hrh",
+		hurt: "creature/bandit/hurt",
+		death: "creature/bandit/die2",
+		melee: "creature/bandit/attack",
+		fleeentity: "creature/bandit/flee",
+		morale: "creature/bandit/flee",
+		seekentity: "creature/bandit/icanseeyou",
+		engageentity: "creature/bandit/icanseeyou"
+	},
+	idleSoundChance: 0.08
+}

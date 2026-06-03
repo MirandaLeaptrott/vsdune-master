@@ -1,0 +1,75 @@
+[
+
+	{
+		"file": "game:entities/lore/bell.json",
+		"op": "replace",
+		"path": "/server/spawnconditions",
+		"value": {
+			"runtime": {
+				"group": "hostile",
+				"maxQuantity": 0,
+				"chance": 0,
+				"insideBlockCodes": ["air"]
+			}
+		},
+		"side": "Server"
+	},
+	{
+		"file": "game:entities/lore/bowtorn.json",
+		"op": "replace",
+		"path": "/server/spawnconditions",
+		"value": {
+			"runtime": {
+				"group": "hostile",
+				"maxQuantity": 0,
+				"chance": 0,
+				"insideBlockCodes": ["air"]
+			}
+		},
+		"side": "Server"
+	},
+	{
+		"file": "game:entities/lore/shiver.json",
+		"op": "replace",
+		"path": "/server/spawnconditions",
+		"value": {
+			"runtime": {
+				"group": "hostile",
+				"maxQuantity": 0,
+				"chance": 0,
+				"insideBlockCodes": ["air"]
+			}
+		},
+		"side": "Server"
+	},
+	{
+		"file": "game:entities/lore/drifter.json",
+		"op": "replace",
+		"path": "/server/spawnconditions",
+		"value": {
+			"runtime": {
+				"group": "hostile",
+				"maxQuantity": 0,
+				"chance": 0,
+				"insideBlockCodes": ["air"]
+			}
+		},
+		"side": "Server"
+	},
+	{
+		"file": "game:entities/lore/locust.json",
+		"op": "replace",
+		"path": "/server/spawnconditionsByType",
+		"value": {
+			"*-corrupt-sawblade": {
+				"runtime": {
+					"group": "hostile",
+					"maxQuantity": 0,
+					"chance": 0,
+					"insideBlockCodes": ["air"]
+				}
+			}
+		},
+		"side": "Server"
+	}
+]

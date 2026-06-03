@@ -1,0 +1,62 @@
+{
+	// VSDune spicesand. Two variants:
+	//   spicesand-wet (purple): freshly produced by a spice blow detonation,
+	//       converts to spicesand-dry over several in-game hours via the
+	//       custom block entity.
+	//   spicesand-dry (orange): the stable end state, no transition behavior.
+	// Both drop the matching spice-unprocessed-{wetness} item when broken,
+	// 4-6 per block (mirrors clay's drop quantity), so the player sees a
+	// reasonable haul from each block.
+	code: "spicesand",
+	variantgroups: [
+		{ code: "wetness", states: ["wet", "dry"] }
+	],
+	// BE only attached to the wet variant since the dry variant is static.
+	// Null-keyed entries in *ByType maps disable the BE for that type.
+	entityClassByType: {
+		"*-wet": "SpicesandDrying"
+	},
+	blockmaterial: "Sand",
+	shape: { base: "game:block/basic/cube" },
+	textures: {
+		all: { base: "sand/spicesand" }
+	},
+	texturesByType: {
+		"*-wet": {
+			all: { base: "sand/spicesand" }
+		},
+		"*-dry": {
+			all: { base: "sand/spicesanddry" }
+		}
+	},
+	drawtype: "Cube",
+	sounds: {
+		place: "game:block/sand",
+		break: "game:block/sand",
+		hit: "game:block/sand",
+		walk: "game:walk/sand",
+		inside: "game:walk/sand"
+	},
+	resistance: 1.5,
+	lightAbsorption: 99,
+	replaceable: 200,
+	creativeinventory: { "general": ["*"], "terrain": ["*"] },
+	attributes: {
+		// Drying duration (in-game hours) for the wet variant. Read by
+		// BlockEntitySpicesandDrying. Six hours is a quarter-day, fast
+		// enough that a player can dig fresh wet spice and watch it
+		// convert before the play session ends, slow enough that wet
+		// patches persist as a clear visual cue at a fresh blow site.
+		dryingHours: 6
+	},
+	drops: [
+		{
+			// Yield 3-5. Unprocessed spice is less potent in recipes
+			// (processing chain dilutes it), so a stingy raw harvest
+			// compounds poorly. avg 4, var 1 yields [3, 5] inclusive.
+			type: "item",
+			code: "vsdune:spice-unprocessed-{wetness}",
+			quantity: { avg: 4, var: 1 }
+		}
+	]
+}

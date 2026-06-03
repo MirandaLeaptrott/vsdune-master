@@ -1,0 +1,16 @@
+[
+	{
+		"file": "game:blocktypes/plant/mushroom.json",
+		"op": "addmerge",
+		"path": "/attributes",
+		"value": { "hydration": 30 },
+		"side": "Server"
+	},
+	{
+		"file": "game:blocktypes/plant/mushroom-side.json",
+		"op": "addmerge",
+		"path": "/attributes",
+		"value": { "hydration": 30 },
+		"side": "Server"
+	}
+]

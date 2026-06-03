@@ -1,0 +1,58 @@
+{
+	// Smuggler faction outfit pool: chaotic mix of SAND armor pieces
+	// across head / body / legs slots. Standard RandomOutfit schema.
+
+	"variants": {
+		"head-deserthelmet1": {
+			"base": "sand:entity/humanoid/seraph/sandy/armor/head/deserthelmet1/deserthelmet1",
+			"weight": 1,
+			"textures": {
+				"material": "sand:entity/humanoid/sandy/head/deserthelmet1/deserthelmet1"
+			}
+		},
+		"head-deserthelmet3": {
+			"base": "sand:entity/humanoid/seraph/sandy/armor/head/deserthelmet3/deserthelmet3",
+			"weight": 1,
+			"textures": {
+				"material": "sand:entity/humanoid/sandy/head/deserthelmet3/deserthelmet3",
+				"cloakmaterial": "sand:entity/humanoid/sandy/cloaks/deserthelmetcloak3/deserthelmetcloak3"
+			}
+		},
+		"body-desertarmor1": {
+			"base": "sand:entity/humanoid/seraph/sandy/armor/body/desertarmor1/desertarmor1",
+			"weight": 1,
+			"textures": {
+				"material": "sand:entity/humanoid/sandy/body/desertarmor1/desertarmor1",
+				"cloakmaterial": "sand:entity/humanoid/sandy/cloaks/desertcloak1/desertcloak1"
+			}
+		},
+		"body-desertarmor3": {
+			"base": "sand:entity/humanoid/seraph/sandy/armor/body/desertarmor3/desertarmor3",
+			"weight": 1,
+			"textures": {
+				"material": "sand:entity/humanoid/sandy/body/desertarmor3/desertarmor3",
+				"cloakmaterial": "sand:entity/humanoid/sandy/cloaks/desertarmorcloak3/desertarmorcloak3"
+			}
+		},
+		"legs-desertpants1": {
+			"base": "sand:entity/humanoid/seraph/sandy/armor/legs/desertpants1/desertpants1",
+			"weight": 1,
+			"textures": {
+				"material": "sand:entity/humanoid/sandy/legs/desertpants1/desertpants1"
+			}
+		},
+		"legs-desertpants3": {
+			"base": "sand:entity/humanoid/seraph/sandy/armor/legs/desertpants3/desertpants3",
+			"weight": 1,
+			"textures": {
+				"material": "sand:entity/humanoid/sandy/legs/desertpants3/desertpants3"
+			}
+		}
+	},
+
+	"bySlot": [
+		{ "code": "head", "variants": ["head-deserthelmet1", "head-deserthelmet3"] },
+		{ "code": "body", "variants": ["body-desertarmor1", "body-desertarmor3"] },
+		{ "code": "legs", "variants": ["legs-desertpants1", "legs-desertpants3"] }
+	]
+}

@@ -1,0 +1,16 @@
+[
+	{
+		"file": "sand:shapes/entity/humanoid/seraph/sandy/armor/body/desertarmor2/desertarmor2.json",
+		"op": "replace",
+		"path": "/textures/cloakmaterial",
+		"value": "entity/humanoid/sandy/cloaks/desertarmorcloak2/desertarmorcloak2",
+		"side": "Client"
+	},
+	{
+		"file": "sand:shapes/entity/humanoid/seraph/sandy/armor/head/deserthelmet2/deserthelmet2.json",
+		"op": "replace",
+		"path": "/textures/cloakmaterial",
+		"value": "entity/humanoid/sandy/cloaks/deserthelmetcloak2/deserthelmetcloak2",
+		"side": "Client"
+	}
+]

@@ -1,0 +1,11 @@
+{
+
+	"ingredientPattern": "S P",
+	"ingredients": {
+		"S": { "type": "item", "code": "game:stick", "quantity": 2 },
+		"P": { "type": "item", "code": "vsdune:spice-unprocessed-*", "name": "wetness", "allowedVariants": ["wet", "dry"], "quantity": 4 }
+	},
+	"width": 3,
+	"height": 1,
+	"output": { "type": "block", "code": "vsdune:spice-planks", "quantity": 4 }
+}

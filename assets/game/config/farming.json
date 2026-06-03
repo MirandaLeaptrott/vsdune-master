@@ -1,0 +1,13 @@
+{
+	delayGrowthBelowSunLight: 19,
+	lossPerLevel: 0.1,
+	delayGrowthBelowTemperature: 10,
+	lossPerDegree: 0.1,
+	weedBlockCodes: [
+		{ code: "tallgrass-veryshort-free", chance: 0.2 },
+		{ code: "tallgrass-short-free", chance: 0.2 },
+		{ code: "tallgrass-mediumshort-free", chance: 0.2 },
+		{ code: "tallgrass-medium-free", chance: 0.2 },
+		{ code: "flower-horsetail-free", chance: 0.12 }
+	]
+}

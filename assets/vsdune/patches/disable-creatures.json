@@ -1,0 +1,28 @@
+[
+
+	{ "file": "game:entities/animal/mammal/hooved/deer-adult.json",   "op": "remove", "path": "/server/spawnconditions",       "side": "Server" },
+	{ "file": "game:entities/animal/mammal/hooved/deer-adult.json",   "op": "remove", "path": "/server/spawnconditionsByType", "side": "Server" },
+	{ "file": "game:entities/animal/mammal/hooved/goat-adult.json",   "op": "remove", "path": "/server/spawnconditions",       "side": "Server" },
+	{ "file": "game:entities/animal/mammal/hooved/goat-adult.json",   "op": "remove", "path": "/server/spawnconditionsByType", "side": "Server" },
+	{ "file": "game:entities/animal/mammal/hooved/pig-adult.json",    "op": "remove", "path": "/server/spawnconditions",       "side": "Server" },
+	{ "file": "game:entities/animal/mammal/hooved/pig-adult.json",    "op": "remove", "path": "/server/spawnconditionsByType", "side": "Server" },
+	{ "file": "game:entities/animal/mammal/hooved/sheep-adult.json",  "op": "remove", "path": "/server/spawnconditions",       "side": "Server" },
+	{ "file": "game:entities/animal/mammal/hooved/sheep-adult.json",  "op": "remove", "path": "/server/spawnconditionsByType", "side": "Server" },
+	{ "file": "game:entities/animal/bird/chicken-adult.json",         "op": "remove", "path": "/server/spawnconditionsByType", "side": "Server" },
+
+
+
+	{ "file": "game:entities/animal/mammal/wolf-adult.json",          "op": "remove", "path": "/server/spawnconditionsByType", "side": "Server" },
+	{ "file": "game:entities/animal/mammal/fox-adult.json",           "op": "remove", "path": "/server/spawnconditionsByType", "side": "Server" },
+	{ "file": "game:entities/animal/mammal/hyena-adult.json",         "op": "remove", "path": "/server/spawnconditionsByType", "side": "Server" },
+
+
+	{ "file": "game:entities/animal/mammal/bear-adult.json",          "op": "remove", "path": "/server/spawnconditions", "side": "Server" },
+	{ "file": "game:entities/animal/mammal/raccoon-adult.json",       "op": "remove", "path": "/server/spawnconditions", "side": "Server" },
+	{ "file": "game:entities/animal/mammal/hooved/gazelle-adult.json","op": "remove", "path": "/server/spawnconditions", "side": "Server" },
+	{ "file": "game:entities/animal/mammal/hooved/moose-adult.json",  "op": "remove", "path": "/server/spawnconditions", "side": "Server" },
+	{ "file": "game:entities/animal/invertebrate/butterfly.json",     "op": "remove", "path": "/server/spawnconditions", "side": "Server" },
+	{ "file": "game:entities/animal/fish/freshwater-adult.json",      "op": "remove", "path": "/server/spawnconditions", "side": "Server" },
+	{ "file": "game:entities/animal/fish/saltwater-adult.json",       "op": "remove", "path": "/server/spawnconditions", "side": "Server" },
+	{ "file": "game:entities/animal/fish/reef-adult.json",            "op": "remove", "path": "/server/spawnconditions", "side": "Server" }
+]

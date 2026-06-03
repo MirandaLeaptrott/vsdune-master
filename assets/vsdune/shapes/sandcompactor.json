@@ -1,0 +1,101 @@
+{
+	"editor": {
+		"backDropShape": "E:/VSVillage Updating/Vanilla Refrence Files/1.22/assets/game/shapes/entity/humanoid/seraph",
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"black": "game:block/leather/black",
+		"normal2": "game:block/metal/corroded/normal2",
+		"rusty2": "game:block/metal/corroded/rusty2"
+	},
+	"elements": [
+		{
+			"name": "Cube2",
+			"from": [ 4.0, 13.0, 3.0 ],
+			"to": [ 7.0, 14.0, 4.0 ],
+			"rotationOrigin": [ 4.0, 13.0, 3.0 ],
+			"faces": {
+				"north": { "texture": "#black", "uv": [ 0.0, 0.0, 3.0, 1.0 ] },
+				"east": { "texture": "#black", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+				"south": { "texture": "#black", "uv": [ 0.0, 0.0, 3.0, 1.0 ] },
+				"west": { "texture": "#black", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+				"up": { "texture": "#black", "uv": [ 0.0, 0.0, 3.0, 1.0 ] },
+				"down": { "texture": "#black", "uv": [ 0.0, 0.0, 3.0, 1.0 ] }
+			}
+		},
+		{
+			"name": "Cube3",
+			"from": [ 1.0, 12.5, 2.5 ],
+			"to": [ 4.0, 14.5, 4.5 ],
+			"rotationOrigin": [ 1.0, 13.0, 2.0 ],
+			"faces": {
+				"north": { "texture": "#normal2", "uv": [ 0.0, 0.0, 14.0, 15.0 ], "autoUv": false },
+				"east": { "texture": "#normal2", "uv": [ 0.0, 0.0, 14.0, 14.0 ], "autoUv": false },
+				"south": { "texture": "#normal2", "uv": [ 0.0, 0.0, 14.0, 14.0 ], "autoUv": false },
+				"west": { "texture": "#normal2", "uv": [ 0.0, 0.0, 14.0, 14.0 ], "autoUv": false },
+				"up": { "texture": "#normal2", "uv": [ 4.0, 0.0, 14.0, 15.0 ], "autoUv": false },
+				"down": { "texture": "#normal2", "uv": [ 0.0, 0.0, 14.0, 14.0 ], "autoUv": false }
+			}
+		},
+		{
+			"name": "Cube4",
+			"from": [ -0.5, 14.25, 2.5 ],
+			"to": [ 1.0, 14.5, 4.5 ],
+			"rotationOrigin": [ -1.0, 15.0, 2.0 ],
+			"faces": {
+				"north": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+				"east": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 2.0, 0.5 ] },
+				"south": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+				"west": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 2.0, 0.5 ] },
+				"up": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 14.0, 14.0 ], "autoUv": false },
+				"down": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 1.5, 2.0 ] }
+			}
+		},
+		{
+			"name": "Cube5",
+			"from": [ 0.0, 12.75, 2.5 ],
+			"to": [ 1.0, 14.25, 2.75 ],
+			"rotationOrigin": [ 0.0, 13.0, 2.0 ],
+			"faces": {
+				"north": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 1.0, 1.5 ] },
+				"east": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 0.5, 1.5 ] },
+				"south": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 1.0, 1.5 ] },
+				"west": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 0.5, 1.5 ] },
+				"up": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 1.0, 0.5 ] },
+				"down": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 1.0, 0.5 ] }
+			}
+		},
+		{
+			"name": "Cube6",
+			"from": [ 0.0, 12.75, 4.25 ],
+			"to": [ 1.0, 14.25, 4.5 ],
+			"rotationOrigin": [ 0.0, 13.0, 4.0 ],
+			"faces": {
+				"north": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 1.0, 1.5 ] },
+				"east": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 0.5, 1.5 ] },
+				"south": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 1.0, 1.5 ] },
+				"west": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 0.5, 1.5 ] },
+				"up": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 1.0, 0.5 ] },
+				"down": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 1.0, 0.5 ] }
+			}
+		},
+		{
+			"name": "Cube7",
+			"from": [ 0.0, 12.5, 2.5 ],
+			"to": [ 1.0, 12.75, 4.5 ],
+			"rotationOrigin": [ -1.0, 13.0, 2.0 ],
+			"faces": {
+				"north": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 1.0, 0.5 ] },
+				"east": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 2.0, 0.5 ] },
+				"south": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 1.0, 0.5 ] },
+				"west": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 2.0, 0.5 ] },
+				"up": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 1.0, 2.0 ] },
+				"down": { "texture": "#rusty2", "uv": [ 0.0, 0.0, 1.0, 2.0 ] }
+			}
+		}
+	]}

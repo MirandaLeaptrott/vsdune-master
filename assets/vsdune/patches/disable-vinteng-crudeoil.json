@@ -1,0 +1,5 @@
+[
+	{ "file": "vinteng:worldgen/deposits/crudeoil.json",     "op": "replace", "path": "/0/triesPerChunk", "value": 0, "side": "Server" },
+	{ "file": "vinteng:worldgen/deposits/crudeoilwell.json", "op": "replace", "path": "/0/triesPerChunk", "value": 0, "side": "Server" },
+	{ "file": "vinteng:worldgen/deposits/crudeoilwell.json", "op": "replace", "path": "/1/triesPerChunk", "value": 0, "side": "Server" }
+]

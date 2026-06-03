@@ -1,0 +1,12 @@
+[
+	{
+		"enabled": true,
+		"code": "fremen",
+		"traits": ["furtive", "forager"],
+		"gear": [
+			{ "type": "item", "code": "game:clothes-upperbody-commoner-shirt" },
+			{ "type": "item", "code": "game:clothes-lowerbody-commoner-trousers" },
+			{ "type": "item", "code": "game:clothes-foot-commoner-boots" }
+		]
+	}
+]

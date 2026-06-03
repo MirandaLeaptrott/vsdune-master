@@ -1,0 +1,97 @@
+[
+	{
+		enabled: true,
+		code: "commoner",
+		traits: [],
+		gear: [
+			{ type: "item", code: "vsdune:stillsuit-top-ragged" },
+			{ type: "item", code: "vsdune:stillsuit-pants-ragged" },
+			{ type: "item", code: "clothes-foot-commoner-boots" },
+			{ type: "item", code: "clothes-hand-commoner-gloves" },
+			{ type: "item", code: "sand:armor-body-desertarmor3-desertarmor3-desertarmorcloak3" },
+			{ type: "item", code: "sand:armor-head-deserthelmet3-deserthelmet3-none" },
+			{ type: "item", code: "sand:armor-legs-desertpants3-desertpants3" }
+		]
+	},
+	{
+		enabled: true,
+		code: "hunter",
+		traits: [ "focused", "resourceful", "fleetfooted", "bowyer", "claustrophobic"],
+		gear: [
+			{ type: "item", code: "clothes-head-hunter-cape" },
+			{ type: "item", code: "clothes-shoulder-hunter-poncho" },
+			{ type: "item", code: "vsdune:stillsuit-top-ragged" },
+			{ type: "item", code: "vsdune:stillsuit-pants-ragged" },
+			{ type: "item", code: "clothes-foot-hunter-boots" },
+			{ type: "item", code: "clothes-face-hunter-mask" },
+			{ type: "item", code: "clothes-hand-hunter-gloves" },
+			{ type: "item", code: "sand:armor-body-desertarmor1-desertarmor1-none" },
+			{ type: "item", code: "sand:armor-head-deserthelmet3-deserthelmet3-none" },
+			{ type: "item", code: "sand:armor-legs-desertpants1-desertpants1" }
+		]
+	},
+	{
+		enabled: true,
+		code: "malefactor",
+		traits: [ "forager", "pilferer", "furtive", "improviser", "merciless" ],
+		gear: [
+			{ type: "item", code: "vsdune:stillsuit-top-ragged" },
+			{ type: "item", code: "clothes-shoulder-malefactor-cloak" },
+			{ type: "item", code: "vsdune:stillsuit-pants-ragged" },
+			{ type: "item", code: "clothes-foot-malefactor-boots" },
+			{ type: "item", code: "clothes-hand-malefactor-gloves" },
+			{ type: "item", code: "clothes-waist-malefactor-sash" },
+			{ type: "item", code: "sand:armor-body-desertarmor1-desertarmor1-desertcloak1" },
+			{ type: "item", code: "sand:armor-head-deserthelmet1-deserthelmet1-none" },
+			{ type: "item", code: "sand:armor-legs-desertpants1-desertpants1" }
+		]
+	},
+	{
+		enabled: true,
+		code: "clockmaker",
+		traits: ["precise", "technical", "fleetfooted", "frail", "tinkerer"],
+		gear: [
+			{ type: "item", code: "clothes-shoulder-clockmaker-apron" },
+			{ type: "item", code: "vsdune:stillsuit-top-ragged" },
+			{ type: "item", code: "vsdune:stillsuit-pants-ragged" },
+			{ type: "item", code: "clothes-foot-clockmaker-shoes" },
+			{ type: "item", code: "clothes-hand-clockmaker-wristguard" },
+			{ type: "item", code: "clothes-waist-clockmaker-belt" },
+			{ type: "item", code: "sand:armor-body-desertarmor3-desertarmor3-desertarmorcloak3" },
+			{ type: "item", code: "sand:armor-head-deserthelmet3-deserthelmet3-none" },
+			{ type: "item", code: "sand:armor-legs-desertpants3-desertpants3" }
+		]
+	},
+	{
+		enabled: true,
+		code: "blackguard",
+		traits: [ "soldier", "hardy", "merciless", "ravenous", "nearsighted", "heavyhanded" ],
+		gear: [
+			{ type: "item", code: "vsdune:stillsuit-top-ragged" },
+			{ type: "item", code: "vsdune:stillsuit-pants-ragged" },
+			{ type: "item", code: "clothes-foot-blackguard-shoes" },
+			{ type: "item", code: "clothes-emblem-blackguard-pin" },
+			{ type: "item", code: "clothes-waist-blackguard-belt" },
+			{ type: "item", code: "sand:armor-body-desertarmor2-desertarmor2-none" },
+			{ type: "item", code: "sand:armor-head-deserthelmet2-deserthelmet2-none" },
+			{ type: "item", code: "sand:armor-legs-desertpants2-desertpants2" }
+		]
+	},
+	{
+		enabled: true,
+		code: "tailor",
+		traits: ["clothier", "mender", "weak", "kind"],
+		gear: [
+			{ type: "item", code: "clothes-face-tailor-mask" },
+			{ type: "item", code: "vsdune:stillsuit-top-ragged" },
+			{ type: "item", code: "clothes-waist-tailor-belt" },
+			{ type: "item", code: "vsdune:stillsuit-pants-ragged" },
+			{ type: "item", code: "clothes-hand-tailor-gloves" },
+			{ type: "item", code: "clothes-foot-tailor-shoes" },
+			{ type: "item", code: "clothes-arm-tailor-needlepuff" },
+			{ type: "item", code: "sand:armor-body-desertarmor3-desertarmor3-desertarmorcloak3" },
+			{ type: "item", code: "sand:armor-head-deserthelmet2-deserthelmet2-deserthelmetcloak2" },
+			{ type: "item", code: "sand:armor-legs-desertpants3-desertpants3" }
+		]
+	}
+]

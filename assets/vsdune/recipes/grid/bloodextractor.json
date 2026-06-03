@@ -1,0 +1,13 @@
+[
+	{
+		"ingredientPattern": "CSC	SQS	CSC",
+		"ingredients": {
+			"C": { "type": "item", "code": "game:metalplate-copper" },
+			"S": { "type": "item", "code": "vsdune:spice-unprocessed-dry" },
+			"Q": { "type": "item", "code": "game:clearquartz" }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:bloodextractor", "quantity": 1 }
+	}
+]

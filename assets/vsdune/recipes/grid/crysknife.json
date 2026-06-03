@@ -1,0 +1,14 @@
+[
+	{
+		"ingredientPattern": "__T	SRS	_M_",
+		"ingredients": {
+			"T": { "type": "item", "code": "vsdune:wormtooth" },
+			"R": { "type": "item", "code": "game:resin" },
+			"S": { "type": "item", "code": "vsdune:spice-unprocessed-dry" },
+			"M": { "type": "item", "code": "game:ingot-blackbronze" }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:crysknife", "quantity": 1 }
+	}
+]

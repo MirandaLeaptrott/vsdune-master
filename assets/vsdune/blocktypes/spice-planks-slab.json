@@ -1,0 +1,36 @@
+{
+	// VSDune spice-planks-slab: half-block slab made from spice-planks.
+	// Reuses vanilla's basic slab-down shape (the bottom-half slab the
+	// engine ships for half-block builds) so we don't author a new
+	// shape file. 2 planks -> 4 slabs in the grid (vanilla split rate).
+	//
+	// Single fixed orientation: bottom-half only. Vanilla's chiseling
+	// system can flip a slab to the top, so players who want both
+	// orientations have a workaround. Keeping the block simple here so
+	// we don't need rotation variants and matching shape files.
+	"code": "spice-planks-slab",
+	"shape": { "base": "game:block/basic/slab/slab-down" },
+	"drawtype": "JSON",
+	"blockmaterial": "Wood",
+	"textures": {
+		"all": { "base": "game:block/wood/planks/purpleheart1" }
+	},
+	"sideopaque": { "all": false, "down": true },
+	"sidesolid": { "all": false, "down": true },
+	"collisionbox": { "x1": 0, "y1": 0, "z1": 0, "x2": 1, "y2": 0.5, "z2": 1 },
+	"selectionbox": { "x1": 0, "y1": 0, "z1": 0, "x2": 1, "y2": 0.5, "z2": 1 },
+	"resistance": 3.0,
+	"requiredMiningTier": 1,
+	"sounds": {
+		"hit":   "game:block/planks",
+		"break": "game:block/planks",
+		"place": "game:block/planks",
+		"walk":  "game:walk/wood"
+	},
+	"combustibleProps": {
+		"burnTemperature": 600,
+		"burnDuration": 10
+	},
+	"creativeinventory": { "general": ["*"], "construction": ["*"] },
+	"materialDensity": 550
+}

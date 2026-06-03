@@ -1,0 +1,64 @@
+{
+	// VSDune spice-door: single-style solid door using vanilla's solid
+	// door shape and Door behavior. Reuses the same wood-overlay texture
+	// pattern vanilla doors use (debarked acacia + door-solid overlay)
+	// so the panel art reads as a real door, not a flat plank.
+	//
+	// Recipe gives one door from 6 spice-planks + 1 metalstrip-iron in
+	// the standard vanilla door grid layout.
+	"code": "spice-door",
+	"class": "BlockGeneric",
+	"entityClass": "Generic",
+	"behaviors": [
+		{ "name": "Lockable" },
+		{ "name": "Door" },
+		{ "name": "BlockEntityInteract" }
+	],
+	"entityBehaviors": [{ "name": "Door" }],
+	"shape": { "base": "game:block/wood/door/solid" },
+	"drawtype": "JSON",
+	"blockmaterial": "Wood",
+	"textures": {
+		"wood": {
+			"base": "game:block/wood/debarked/purpleheart",
+			"rotation": 90,
+			"blendedOverlays": [
+				{ "base": "game:block/wood/door/overlay-solid", "blendMode": "Overlay" }
+			]
+		}
+	},
+	"renderPass": "OpaqueNoCull",
+	"faceCullMode": "NeverCull",
+	"sideAo": { "all": false },
+	"sidesolid": { "all": false },
+	"sideopaque": { "all": false },
+	"resistance": 3.5,
+	"replaceable": 500,
+	"lightAbsorption": 0,
+	"requiredMiningTier": 1,
+	"attributes": {
+		"airtight": true,
+		"width": 1,
+		"height": 2,
+		"openSound": "game:sounds/block/door",
+		"closeSound": "game:sounds/block/door",
+		"easingSpeed": 10
+	},
+	"sounds": {
+		"hit":   "game:block/planks",
+		"break": "game:block/planks",
+		"place": "game:block/planks",
+		"walk":  "game:walk/wood"
+	},
+	"combustibleProps": {
+		"burnTemperature": 600,
+		"burnDuration": 25
+	},
+	"creativeinventory": { "general": ["*"], "decorative": ["*"] },
+	"heldTpIdleAnimation": "holdunderarm",
+	"materialDensity": 600,
+	"guiTransform": {
+		"origin": { "x": 0.49, "y": 1, "z": 0.8 },
+		"scale": 0.73
+	}
+}

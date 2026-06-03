@@ -1,0 +1,25 @@
+{
+	// VSDune: trees and vanilla shrubs fully gone. Pricklymoses spawns via
+	// our custom GenDesertShrubs ModSystem instead of vanilla shrubgens,
+	// because vanilla genShrubs requires `block.Fertility > 0` on the
+	// surface tile and our sand-{rocktype} surface has Fertility 0.
+	// Bumping sand to fertile would make it farmland-equivalent globally
+	// and break the desert theme.
+	//
+	// Both arrays empty plus per-chunk counts zeroed so the vanilla
+	// placement loops exit immediately. The two arrays are kept (empty)
+	// so the loader's schema doesn't break.
+
+	treesPerChunk: { dist: "uniform", avg: 0, var: 0 },
+	shrubsPerChunk: { dist: "uniform", avg: 0, var: 0 },
+
+	// Vines never spawn either (no host trees to vine on), but the loader
+	// expects these fields so we keep harmless stubs.
+	vinesBlockGenerator: "wildvine-section-north",
+	vinesBlockCodeEnd: "wildvine-end-north",
+	vinesMinRain: 1,
+	vinesMinTemp: 100,
+
+	treegens: [],
+	shrubgens: []
+}

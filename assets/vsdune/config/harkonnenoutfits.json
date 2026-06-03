@@ -1,0 +1,37 @@
+{
+	// Hark uniform: regular military, single variant per slot. SAND
+	// shapes drive geometry / UVs; material and cloak point at recolored
+	// copies of the SAND desert textures (dark red, armor detail kept).
+
+	"variants": {
+		"head-harkonen": {
+			"base": "sand:entity/humanoid/seraph/sandy/armor/head/deserthelmet2/deserthelmet2",
+			"weight": 1,
+			"textures": {
+				"material": "vsdune:entity/bandit/deserthelmet2",
+				"cloakmaterial": "vsdune:entity/bandit/deserthelmetcloak2"
+			}
+		},
+		"body-harkonen": {
+			"base": "sand:entity/humanoid/seraph/sandy/armor/body/desertarmor2/desertarmor2",
+			"weight": 1,
+			"textures": {
+				"material": "vsdune:entity/bandit/desertarmor2",
+				"cloakmaterial": "vsdune:entity/bandit/desertarmorcloak2"
+			}
+		},
+		"legs-harkonen": {
+			"base": "sand:entity/humanoid/seraph/sandy/armor/legs/desertpants2/desertpants2",
+			"weight": 1,
+			"textures": {
+				"material": "vsdune:entity/bandit/desertpants2"
+			}
+		}
+	},
+
+	"bySlot": [
+		{ "code": "head", "variants": ["head-harkonen"] },
+		{ "code": "body", "variants": ["body-harkonen"] },
+		{ "code": "legs", "variants": ["legs-harkonen"] }
+	]
+}

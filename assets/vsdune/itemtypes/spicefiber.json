@@ -1,0 +1,32 @@
+{
+
+	code: "spicefiber",
+	maxstacksize: 64,
+	shape: { base: "game:item/resource/clayraw" },
+	textures: {
+		clay: { base: "sand/spicesanddry" }
+	},
+	creativeinventory: { "general": ["*"], "items": ["*"] },
+	attributes: {
+		handbook: {
+			groupBy: ["spicefiber"]
+		}
+	},
+	materialDensity: 100,
+	guiTransform: {
+		rotation: { x: 142, y: -35, z: 0 },
+		origin: { x: 0.48, y: 0.09, z: 0.5 },
+		scale: 2.2
+	},
+	tpHandTransform: {
+		translation: { x: -2.08, y: -1.24, z: -1.22 },
+		rotation: { x: -31, y: 11, z: -98 },
+		scale: 0.38
+	},
+	groundTransform: {
+		translation: { x: 0, y: 0.17, z: 0 },
+		rotation: { x: -1, y: 0, z: 0 },
+		origin: { x: 0.5, y: 0.17, z: 0.5 },
+		scale: 5
+	}
+}

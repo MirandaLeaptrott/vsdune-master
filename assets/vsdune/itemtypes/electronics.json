@@ -1,0 +1,15 @@
+{
+	"code": "electronics",
+	"class": "Item",
+	"shape": { "base": "game:item/resource/nugget" },
+	"textures": {
+		"nugget": { "base": "game:item/resource/metalbits/electrum" }
+	},
+	"maxStackSize": 32,
+	"creativeinventory": { "general": ["*"], "items": ["*"] },
+	"attributes": {
+		"handbook": {
+			"groupBy": ["electronics"]
+		}
+	}
+}

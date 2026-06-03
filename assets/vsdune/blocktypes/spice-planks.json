@@ -1,0 +1,27 @@
+{
+	// Spice-planks: workhorse intermediate. Crafted via direct grid
+	// (2 sticks + 4 spice) or via spice-debarkedlog (saw-style). Slabs
+	// and doors craft from these.
+	"code": "spice-planks",
+	"shape": { "base": "game:block/basic/cube" },
+	"drawtype": "Cube",
+	"blockmaterial": "Wood",
+	"textures": {
+		"all": { "base": "game:block/wood/planks/purpleheart1" }
+	},
+	"resistance": 3.5,
+	"requiredMiningTier": 1,
+	"sounds": {
+		"hit":   "game:block/planks",
+		"break": "game:block/planks",
+		"place": "game:block/planks",
+		"walk":  "game:walk/wood"
+	},
+	"combustibleProps": {
+		"burnTemperature": 600,
+		"burnDuration": 20
+	},
+	"creativeinventory": { "general": ["*"], "construction": ["*"] },
+	"materialDensity": 550,
+	"maxStackSize": 32
+}

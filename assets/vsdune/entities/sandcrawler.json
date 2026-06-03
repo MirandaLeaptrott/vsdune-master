@@ -1,0 +1,24 @@
+{
+	"code": "sandcrawler",
+	"class": "EntityAgent",
+	"tags": ["inanimate", "vehicle"],
+	"hitboxSize": { "x": 20.0, "y": 6.0 },
+	"deadHitboxSize": { "x": 20.0, "y": 6.0 },
+	"eyeHeight": 4.0,
+	"canClimb": false,
+	"attributes": {},
+	"drops": [],
+	"client": {
+		"renderer": "Shape",
+		"shape": { "base": "vsdune:sandcrawler" },
+		"size": 1.0,
+		"behaviors": [
+			{ "code": "interpolateposition" }
+		]
+	},
+	"server": {
+		"behaviors": [
+			{ "code": "health", "currenthealth": 600, "maxhealth": 600 }
+		]
+	}
+}

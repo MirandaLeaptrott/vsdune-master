@@ -1,0 +1,494 @@
+{
+	code: "scavenger-sniper",
+	class: "EntityFactionUnit",
+	canClimb: true,
+	hitboxSize: { x: 0.6, y: 1.75 },
+	deadHitboxSize: { x: 0.75, y: 0.5 },
+	eyeHeight: 1.7,
+	attributes: {
+		reckless: false,
+		killedByInfoText: "deadcreature-eaten-scavenger-sniper",
+		factionCode: "scavenger",
+		outfitversion: 1
+	},
+
+	drops: [
+			{
+				type: "item",
+				code: "game:hide-raw-small",
+				quantity: { avg: 1.5, var: 0.5 }
+			},
+			{
+				type: "item",
+				code: "game:hide-raw-medium",
+				quantity: { avg: 0.5, var: 0.5 }
+			},
+			{
+				type: "item",
+				code: "game:hide-raw-large",
+				quantity: { avg: 0.125, var: 0 }
+			},
+			{
+				type: "item",
+				code: "game:bushmeat-raw",
+				quantity: { avg: 2, var: 1 }
+			},
+			{
+				type: "item",
+				code: "game:redmeat-raw",
+				quantity: { avg: 3, var: 1 }
+			},
+			{
+				type: "item",
+				code: "game:fat",
+				quantity: { avg: 1, var: 0.25 }
+			},
+			{
+				type: "item",
+				code: "game:arrow-copper",
+				quantity: { avg: 1, var: 2 }
+			},
+			{
+				type: "item",
+				code: "game:bow-long",
+				quantity: { avg: 0.05, var: 0.0 }
+			},
+			{
+				type: "item",
+				code: "game:hunterbackpack",
+				quantity: { avg: 0.025, var: 0.0 }
+			},
+			{
+				type: "item",
+				code: "vsdune:ornithopter-controlkey",
+				quantity: { avg: 0.03, var: 0.0 }
+			}
+	],
+	client: {
+		renderer: "Shape",
+		shape: { base: "entity/land/poacher-archer" },
+		textures: {
+			"poacher1": { base: "entity/bandit/poacher1", alternates: [ { base: "entity/bandit/poacher2" }, { base: "entity/bandit/poacher3" }, { base: "entity/bandit/poacher4" } ] }
+		},
+		behaviors: [
+			{ code: "repulseagents" },
+			{ code: "floatupwhenstuck", onlyWhenDead: true },
+			{ code: "controlledphysics", stepHeight: 1.1251 },
+			{ code: "harvestable" },
+			{ code: "interpolateposition" },
+			{ code: "vsdune.randomoutfit" },
+			{ code: "vsdune.handinventory" }
+		],
+		animations: [
+			{
+				code: "die",
+				animation: "die",
+				animationSpeed: 1.75,
+				weight: 10,
+				blendMode: "Average",
+				triggeredBy: { onControls: ["dead"] }
+			},
+			{
+				code: "hurt",
+				animation: "hurt",
+				animationSpeed: 2,
+				weight: 8,
+				blendMode: "AddAverage"
+			},
+			{
+				code: "wander",
+				animation: "walkbowready",
+				blendMode: "Average",
+				easeOutSpeed: 1
+			},
+			{
+				code: "sprint",
+				animation: "sprint",
+				animationSpeed: 0.6,
+				mulWithWalkSpeed: true,
+				blendMode: "Average"
+			},
+			{
+				code: "melee",
+				animation: "attack",
+				weight: 10,
+				blendMode: "AddAverage"
+			},
+			{
+				code: "firearm-shoot",
+				animation: "firearm-shoot",
+				weight: 10,
+				blendMode: "Average"
+			},
+			{
+				code: "look",
+				animation: "look",
+				easeOutSpeed: 1,
+				blendMode: "Add",
+				SupressDefaultAnimation: true
+			},
+			{
+				code: "sneakwalk",
+				animation: "sneakwalk",
+				SupressDefaultAnimation: true
+			},
+			{
+				code: "walk",
+				animation: "walk",
+				SupressDefaultAnimation: true
+			},
+			{
+				code: "idle",
+				animation: "sneakidle",
+				blendMode: "AddAverage",
+				triggeredBy: { defaultAnim: true }
+			}
+		]
+	},
+	server: {
+		attributes: {
+			pathfinder: {
+				minTurnAnglePerSec: 960,
+				maxTurnAnglePerSec: 1920
+			}
+		},
+		behaviors: [
+			{ code: "repulseagents" },
+			{ code: "despawn", minPlayerDistance: 8, belowLightLevel: 8, minSeconds: 300 },
+			{ code: "controlledphysics", stepHeight: 1.1251 },
+			{ code: "deaddecay", hoursToDecay: 96, decayedBlock: "carcass-human" },
+			{ code: "floatupwhenstuck", onlyWhenDead: true },
+			{ code: "health", currenthealth: 12, maxhealth: 12 },
+			{ code: "harvestable", drops: [
+				{
+					type: "item",
+					code: "outlawhead-poacher",
+					quantity: { avg: 1, var: 0 }
+				}
+				]
+			},
+			{ code: "breathe" },
+			{
+				code: "emotionstates",
+				states: [
+					{ code: "aggressiveondamage", duration: 15, chance: 1.00, slot: 0, priority: 4.0, accumType: "noaccum", whenHealthRelBelow: 0.75 },
+					{ code: "fleeondamage", duration: 15.0, chance: 1.00, slot: 0, priority: 2.0, accumType: "max", whenHealthRelBelow: 1.00 },
+					{ code: "saturated", duration: 300, chance: 1, slot: 0, priority: 1, accumType: "sum" }
+				]
+			},
+			{
+				code: "taskai",
+				aitasks: [
+					{
+						code: "reacttoprojectiles",
+						entityCodes: ["player", "fremen-*", "harkonnen-*"],
+						priority: 5.1
+					},
+					{
+						code: "morale",
+						priority: 5.0,
+						movespeed: 0.040,
+						cancelOnHurt: false,
+						routDistance: 60,
+						rallyTimeAfterRoutMs: 10000,
+						minMorale: 0.8,
+						maxMorale: 1.0,
+						moraleRange: 15,
+						useGroupMorale: true,
+						deathsImpactMorale: true,
+						canRoutFromAnyEnemy: true,
+
+						entitySourcesOfFear: [
+							{ code: "player",       fearWeight:  1.0 },
+							{ code: "scavenger-*",   fearWeight: -0.1 },
+							{ code: "fremen-*",     fearWeight:  0.1 },
+							{ code: "harkonnen-*",  fearWeight:  0.1 }
+						],
+						itemStackSourcesOfFear: [
+							{ code: "outlawhead-*",  fearWeight: 0.2 },
+							{ code: "headonspear-*", fearWeight: 0.2 }
+						],
+						poiSourcesOfFear: [
+							{ poiType: "outlawSpawnBlocker", fearWeight: 0.2 }
+						],
+
+						animation: "sprint",
+						animationSpeed: 1
+					},
+					// Hunting shot: musket at game animals. Future: Maula
+					// pistols / drill shots once we have the proper item codes.
+					{
+						code: "shootatentity",
+						entityCodes: ["wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "chicken-rooster", "chicken-hen", "chicken-baby", "hare-male", "hare-female",
+							"fox-male-red", "fox-female-red", "fox-male-arctic", "fox-female-arctic", "pig-wild-male", "pig-wild-female", "raccoon-male", "raccoon-female", "sheep-bighorn-male", "sheep-bighorn-female",
+							"deer-*", "goat-*"],
+						priority: 3.75,
+					searchWaitMs: 2000,
+					maxFollowTime: 30,
+					noLOSTimeout: 8000,
+						priorityForCancel: 9,
+						mincooldown: 3500,
+						maxcooldown: 4500,
+						minDist: 0,
+						maxDist: 45,
+						minRangeDistOffTarget: 0.15,
+						maxRangeDistOffTarget: 0.3,
+						maxVelocity: 2.5,
+						newTargetDistOffTarget: 0.0,
+						newTargetZeroingTime: 0.0,
+						damage: 11.0,
+						damageFalloffPercent: 0.66,
+						damageFalloffStartDist: 25,
+						damageFalloffEndDist: 50,
+						projectileItem: "maltiezfirearms:slug-lead",
+						projectileRemainsInWorld: false,
+						projectileBreakOnImpactChance: 1.0,
+						stopIfPredictFriendlyFire: true,
+
+						leadTarget: true,
+						arcShots: false,
+						fireOnLastKnownPosition: false,
+
+						durationMs: 2000,
+						releaseAtMs: 1000,
+						seekingRange: 15,
+						animationSpeed: 1.0,
+						animation: "firearm-shoot",
+						shootSound: "maltiezfirearms:musket/musket-fire-1",
+						yawDispersionDeg: 6,
+						pitchDispersionDeg: 5,
+						whenNotInEmotionState: "saturated"
+					},
+					// Combat shot: musket at threats once aggro'd.
+					{
+						code: "shootatentity",
+						entityCodes: ["player", "drifter-*", "wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "humanoid-villager-*", "fremen-*", "harkonnen-*"],
+						priority: 5.0,
+					searchWaitMs: 2000,
+					maxFollowTime: 30,
+					noLOSTimeout: 8000,
+						priorityForCancel: 9,
+						mincooldown: 3500,
+						maxcooldown: 4500,
+						minDist: 0,
+						maxDist: 45,
+						minRangeDistOffTarget: 0.25,
+						maxRangeDistOffTarget: 0.75,
+						maxVelocity: 2.5,
+						newTargetDistOffTarget: 0.75,
+						newTargetZeroingTime: 1.0,
+						damage: 11.0,
+						damageFalloffPercent: 0.66,
+						damageFalloffStartDist: 25,
+						damageFalloffEndDist: 50,
+						projectileItem: "maltiezfirearms:slug-lead",
+						projectileRemainsInWorld: false,
+						projectileBreakOnImpactChance: 1.0,
+						stopIfPredictFriendlyFire: true,
+
+						leadTarget: true,
+						arcShots: false,
+						alarmHerd: true,
+						fireOnLastKnownPosition: true,
+						lastKnownPositionTimeoutMs: 5000,
+
+						durationMs: 2000,
+						releaseAtMs: 1000,
+						seekingRange: 15,
+						animationSpeed: 1.0,
+						animation: "firearm-shoot",
+						shootSound: "maltiezfirearms:musket/musket-fire-1",
+						yawDispersionDeg: 6,
+						pitchDispersionDeg: 5,
+						whenInEmotionState: "aggressiveondamage"
+					},
+					// Disengage when hurt.
+					{
+						code: "morale",
+						priority: 3.5,
+						priorityForCancel: 4.0,
+						movespeed: 0.040,
+						cancelOnHurt: false,
+						routDistance: 22,
+						rallyTimeAfterRoutMs: 10000,
+						minMorale: -100.0,
+						maxMorale: -100.0,
+						moraleRange: 5,
+						useGroupMorale: false,
+						canRoutFromAnyEnemy: false,
+						tacticalRetreat: true,
+
+						entitySourcesOfFear: [
+							{ code: "player",            fearWeight: 1.0 },
+							{ code: "drifter-*",         fearWeight: 1.0 },
+							{ code: "wolf-*",            fearWeight: 1.0 },
+							{ code: "hyena-*",           fearWeight: 1.0 },
+							{ code: "locust-*",          fearWeight: 1.0 },
+							{ code: "bear-*",            fearWeight: 1.0 },
+							{ code: "fox-*",             fearWeight: 1.0 },
+							{ code: "pig-*",             fearWeight: 1.0 },
+							{ code: "sheep-*",           fearWeight: 1.0 },
+							{ code: "humanoid-villager-*", fearWeight: 1.0 },
+							{ code: "fremen-*",          fearWeight: 1.0 },
+							{ code: "harkonnen-*",       fearWeight: 1.0 }
+						],
+
+						animation: "sprint",
+						animationSpeed: 1,
+						whenInEmotionState: "fleeondamage",
+						whenNotInEmotionState: "aggressiveondamage"
+					},
+					// Keep distance from any target that approaches (passive flee).
+					{
+						code: "morale",
+						priority: 3.0,
+						priorityForCancel: 4.0,
+						movespeed: 0.040,
+						cancelOnHurt: false,
+						routDistance: 14,
+						rallyTimeAfterRoutMs: 12000,
+						minMorale: -100.0,
+						maxMorale: -100.0,
+						moraleRange: 6,
+						useGroupMorale: false,
+						canRoutFromAnyEnemy: false,
+						tacticalRetreat: true,
+
+						entitySourcesOfFear: [
+							{ code: "player",            fearWeight: 1.0 },
+							{ code: "drifter-*",         fearWeight: 1.0 },
+							{ code: "wolf-male",         fearWeight: 1.0 },
+							{ code: "wolf-female",       fearWeight: 1.0 },
+							{ code: "hyena-male",        fearWeight: 1.0 },
+							{ code: "hyena-female",      fearWeight: 1.0 },
+							{ code: "locust-*",          fearWeight: 1.0 },
+							{ code: "bear-*",            fearWeight: 1.0 },
+							{ code: "chicken-rooster",   fearWeight: 1.0 },
+							{ code: "chicken-hen",       fearWeight: 1.0 },
+							{ code: "hare-male",         fearWeight: 1.0 },
+							{ code: "hare-female",       fearWeight: 1.0 },
+							{ code: "fox-male-red",      fearWeight: 1.0 },
+							{ code: "fox-female-red",    fearWeight: 1.0 },
+							{ code: "fox-male-arctic",   fearWeight: 1.0 },
+							{ code: "fox-female-arctic", fearWeight: 1.0 },
+							{ code: "pig-wild-male",     fearWeight: 1.0 },
+							{ code: "pig-wild-female",   fearWeight: 1.0 },
+							{ code: "raccoon-male",      fearWeight: 1.0 },
+							{ code: "raccoon-female",    fearWeight: 1.0 },
+							{ code: "sheep-bighorn-male",   fearWeight: 1.0 },
+							{ code: "sheep-bighorn-female", fearWeight: 1.0 },
+							{ code: "deer-*",            fearWeight: 1.0 },
+							{ code: "goat-*",            fearWeight: 1.0 },
+							{ code: "humanoid-villager-*", fearWeight: 1.0 },
+							{ code: "fremen-*",          fearWeight: 1.0 },
+							{ code: "harkonnen-*",       fearWeight: 1.0 }
+						],
+
+						animation: "sprint",
+						animationSpeed: 1,
+						whenNotInEmotionState: "aggressiveondamage"
+					},
+					// Seek game to hunt.
+					{
+						code: "engageentity",
+						entityCodes: ["wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "chicken-rooster", "chicken-hen", "chicken-baby", "hare-male", "hare-female",
+							"fox-male-red", "fox-female-red", "fox-male-arctic", "fox-female-arctic", "pig-wild-male", "pig-wild-female", "raccoon-male", "raccoon-female", "sheep-bighorn-male", "sheep-bighorn-female",
+							"deer-*", "goat-*"],
+						priority: 2.0,
+					searchWaitMs: 2000,
+					maxFollowTime: 30,
+					noLOSTimeout: 8000,
+						priorityForCancel: 3.0,
+						mincooldown: 0,
+						maxcooldown: 0,
+						pursueSpeed: 0.010,
+						pursueRange: 60,
+						seekingRange: 60,
+						pursueAnimation: "sneakwalk",
+						engageSpeed: 0.010,
+						engageRange: 4,
+						engageAnimation: "sneakwalk",
+						animation: "sneakwalk",
+
+						withdrawIfNoPath: true,
+						withdrawDist: 9.0,
+						withdrawDistDamaged: 40.0,
+						withdrawAnimation: "sneakidle",
+
+						swimAnimation: "swim",
+
+						animationSpeed: 1.0,
+						alarmHerd: true,
+						soundStartMs: 950,
+						whenNotInEmotionState: "saturated"
+					},
+					{
+						code: "getoutofwater",
+						priority: 2,
+						movespeed: 0.040,
+						animation: "swim",
+						animationSpeed: 0.3
+					},
+					{
+						code: "idle",
+						priority: 0.8,
+						minduration: 5000,
+						maxduration: 30000,
+						mincooldown: 2000,
+						maxcooldown: 120000,
+						priorityForCancel: 1.33,
+						animation: "look",
+						whenNotInEmotionState: "fleeondamage",
+						stopOnNearbyEntityCodes: ["player", "drifter-*", "wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "humanoid-villager-*", "fremen-*", "harkonnen-*"],
+						stopRange: 5
+					},
+					{
+						code: "idle",
+						priority: 0.7,
+						minduration: 5000,
+						maxduration: 30000,
+						mincooldown: 2000,
+						maxcooldown: 120000,
+						priorityForCancel: 1.33,
+						animation: "idle",
+						whenNotInEmotionState: "fleeondamage",
+						stopOnNearbyEntityCodes: ["player", "drifter-*", "wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "humanoid-villager-*", "fremen-*", "harkonnen-*"],
+						stopRange: 5
+					},
+					{
+						code: "wander",
+						priority: 0.5,
+						priorityForCancel: 1.35,
+						movespeed: 0.006,
+						minduration: 2500,
+						maxduration: 5000,
+						mincooldown: 5000,
+						maxcooldown: 10000,
+						animation: "sneakwalk",
+						preferredLightLevel: 20,
+						whenNotInEmotionState: "fleeondamage"
+					}
+				]
+			},
+			{ code: "vsdune.outlawarrakis" },
+			{ code: "vsdune.randomoutfit" },
+			{ code: "vsdune.handinventory" },
+			{ code: "vsdune.weaponspawn", itemCode: "maltiezfirearms:firearm-arquebus-rusted" }
+		]
+		// Vanilla spawnconditions stripped: VSDune handles all faction
+		// spawning via event-driven systems (spice blows, wrecks,
+		// patrols, raids). See src/Systems/GenFactionSpawner.cs.
+	},
+	sounds: {
+		idle: "creature/bandit/idle1",
+		hurt: "creature/bandit/hurt",
+		death: "creature/bandit/die2",
+		melee: "creature/bandit/attack",
+		fleeentity: "creature/bandit/flee",
+		morale: "creature/bandit/flee",
+		seekentity: "creature/bandit/youdead",
+		drawSound: "bow-draw",
+		shootSound: "bow-release"
+	},
+	idleSoundChance: 0.08
+}

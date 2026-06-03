@@ -1,0 +1,393 @@
+{
+	code: "scavenger-spearman",
+	class: "EntityFactionUnit",
+	canClimb: true,
+	hitboxSize: { x: 0.6, y: 1.75 },
+	deadHitboxSize: { x: 0.75, y: 0.5 },
+	eyeHeight: 1.7,
+	attributes: {
+		reckless: false,
+		killedByInfoText: "deadcreature-eaten-scavenger-spearman",
+		factionCode: "scavenger",
+		outfitversion: 1
+	},
+
+	drops: [
+			{
+				type: "item",
+				code: "game:hide-raw-small",
+				quantity: { avg: 1.5, var: 0.5 }
+			},
+			{
+				type: "item",
+				code: "game:hide-raw-medium",
+				quantity: { avg: 0.5, var: 0.5 }
+			},
+			{
+				type: "item",
+				code: "game:hide-raw-large",
+				quantity: { avg: 0.125, var: 0 }
+			},
+			{
+				type: "item",
+				code: "game:bushmeat-raw",
+				quantity: { avg: 2, var: 1 }
+			},
+			{
+				type: "item",
+				code: "game:redmeat-raw",
+				quantity: { avg: 3, var: 1 }
+			},
+			{
+				type: "item",
+				code: "game:fat",
+				quantity: { avg: 1, var: 0.25 }
+			},
+			{
+				type: "item",
+				code: "game:arrow-copper",
+				quantity: { avg: 1, var: 2 }
+			},
+			{
+				type: "item",
+				code: "game:spear-generic-copper",
+				quantity: { avg: 0.05, var: 0.0 }
+			},
+			{
+				type: "item",
+				code: "game:hunterbackpack",
+				quantity: { avg: 0.025, var: 0.0 }
+			},
+			{
+				type: "item",
+				code: "vsdune:ornithopter-controlkey",
+				quantity: { avg: 0.015, var: 0.0 }
+			}
+	],
+	client: {
+		renderer: "Shape",
+		shape: { base: "entity/land/poacher-spear" },
+		textures: {
+			"poacher1": { base: "entity/bandit/poacher1", alternates: [ { base: "entity/bandit/poacher2" }, { base: "entity/bandit/poacher3" }, { base: "entity/bandit/poacher4" } ] }
+		},
+		behaviors: [
+			{ code: "repulseagents" },
+			{ code: "floatupwhenstuck", onlyWhenDead: true },
+			{ code: "controlledphysics", stepHeight: 1.1251 },
+			{ code: "harvestable" },
+			{ code: "interpolateposition" },
+			{ code: "vsdune.randomoutfit" }
+		],
+		animations: [
+			{
+				code: "die",
+				animation: "die",
+				animationSpeed: 1.75,
+				weight: 10,
+				blendMode: "Average",
+				triggeredBy: { onControls: ["dead"] }
+			},
+			{
+				code: "hurt",
+				animation: "hurt",
+				animationSpeed: 2,
+				weight: 8,
+				blendMode: "AddAverage"
+			},
+			{
+				code: "wander",
+				animation: "walkspearshouldered",
+				blendMode: "Average",
+				easeInSpeed: 0.05,
+				easeOutSpeed: 0.05
+			},
+			{
+				code: "sprint",
+				animation: "sprint",
+				animationSpeed: 0.6,
+				mulWithWalkSpeed: true,
+				blendMode: "Average"
+			},
+			{
+				code: "melee",
+				animation: "attack",
+				weight: 10,
+				blendMode: "AddAverage"
+			},
+			{
+				code: "look",
+				animation: "look",
+				easeOutSpeed: 1,
+				blendMode: "Add",
+				SupressDefaultAnimation: true
+			},
+			{
+				code: "walk",
+				animation: "WalkSpearShouldered",
+				blendMode: "AddAverage",
+				SupressDefaultAnimation: true
+			},
+			{
+				code: "walk",
+				animation: "walk",
+				SupressDefaultAnimation: true
+			},
+			{
+				code: "idle",
+				animation: "idle",
+				blendMode: "AddAverage",
+				triggeredBy: { defaultAnim: true }
+			}
+		]
+	},
+	server: {
+		attributes: {
+			pathfinder: {
+				minTurnAnglePerSec: 960,
+				maxTurnAnglePerSec: 1920
+			}
+		},
+		behaviors: [
+			{ code: "repulseagents" },
+			{ code: "despawn", minPlayerDistance: 8, belowLightLevel: 8, minSeconds: 300 },
+			{ code: "controlledphysics", stepHeight: 1.1251 },
+			{ code: "deaddecay", hoursToDecay: 96, decayedBlock: "carcass-human" },
+			{ code: "floatupwhenstuck", onlyWhenDead: true },
+			{ code: "health", currenthealth: 12, maxhealth: 12 },
+			{ code: "harvestable", drops: [
+				{
+					type: "item",
+					code: "outlawhead-poacher",
+					quantity: { avg: 1, var: 0 }
+				}
+				]
+			},
+			{ code: "breathe" },
+			{
+				code: "emotionstates",
+				states: [
+					{ code: "aggressiveondamage", duration: 15, chance: 1.00, slot: 0, priority: 4.0, accumType: "noaccum", whenHealthRelBelow: 0.75 },
+					{ code: "fleeondamage", duration: 15.0, chance: 1.00, slot: 0, priority: 2.0, accumType: "max", whenHealthRelBelow: 1.00 },
+					{ code: "saturated", duration: 300, chance: 1, slot: 0, priority: 1, accumType: "sum" }
+				]
+			},
+			{
+				code: "taskai",
+				aitasks: [
+					{
+						code: "reacttoprojectiles",
+						entityCodes: ["player", "fremen-*", "harkonnen-*"],
+						priority: 5.1
+					},
+					{
+						code: "morale",
+						priority: 5.0,
+						movespeed: 0.040,
+						cancelOnHurt: false,
+						routDistance: 60,
+						rallyTimeAfterRoutMs: 10000,
+						minMorale: 0.8,
+						maxMorale: 1.0,
+						moraleRange: 15,
+						useGroupMorale: true,
+						deathsImpactMorale: true,
+						canRoutFromAnyEnemy: false,
+
+						entitySourcesOfFear: [
+							{ code: "player",       fearWeight:  0.1 },
+							{ code: "scavenger-*",   fearWeight: -0.1 },
+							{ code: "fremen-*",     fearWeight:  0.1 },
+							{ code: "harkonnen-*",  fearWeight:  0.1 }
+						],
+						itemStackSourcesOfFear: [
+							{ code: "outlawhead-*",  fearWeight: 0.2 },
+							{ code: "headonspear-*", fearWeight: 0.2 }
+						],
+						poiSourcesOfFear: [
+							{ poiType: "outlawSpawnBlocker", fearWeight: 0.2 }
+						],
+
+						animation: "sprint",
+						animationSpeed: 1
+					},
+					// Hunting attack: chase down game animals.
+					{
+						code: "melee",
+						entityCodes: ["wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "chicken-rooster", "chicken-hen", "chicken-baby", "hare-male", "hare-female",
+							"fox-male-red", "fox-female-red", "fox-male-arctic", "fox-female-arctic", "pig-wild-male", "pig-wild-female", "raccoon-male", "raccoon-female", "sheep-bighorn-male", "sheep-bighorn-female",
+							"deer-*", "goat-*"],
+						priority: 2.5,
+						damage: 5.0,
+						damageTier: 1,
+						damageType: "PiercingAttack",
+						minDist: 2.0,
+						minVerDist: 1.5,
+						slot: 1,
+						mincooldown: 500,
+						maxcooldown: 1500,
+						attackDurationMs: 450,
+						damagePlayerAtMs: 300,
+						animation: "attack",
+						animationSpeed: 1.0,
+						whenNotInEmotionState: "saturated"
+					},
+					// Threat attack: aggro-only against humanoids / drifters.
+					{
+						code: "melee",
+						entityCodes: ["player", "drifter-*", "humanoid-villager-*", "fremen-*", "harkonnen-*"],
+						priority: 5.0,
+						damage: 5.0,
+						damageTier: 1,
+						damageType: "PiercingAttack",
+						minDist: 2.0,
+						slot: 1,
+						mincooldown: 500,
+						maxcooldown: 1500,
+						attackDurationMs: 450,
+						damagePlayerAtMs: 300,
+						animation: "attack",
+						animationSpeed: 1.0,
+						whenInEmotionState: "aggressiveondamage"
+					},
+					{
+						code: "engageentity",
+						entityCodes: ["player", "drifter-*", "humanoid-villager-*", "fremen-*", "harkonnen-*"],
+						priority: 4.0,
+					searchWaitMs: 2000,
+					maxFollowTime: 30,
+					noLOSTimeout: 8000,
+						mincooldown: 0,
+						maxcooldown: 0,
+						pursueSpeed: 0.040,
+						pursueRange: 50,
+						seekingRange: 50,
+						pursueAnimation: "sprint",
+						engageSpeed: 0.025,
+						engageRange: 4,
+						engageAnimation: "walk",
+
+						withdrawIfNoPath: true,
+						withdrawDist: 9.0,
+						withdrawDistDamaged: 40.0,
+						withdrawAnimation: "idle",
+
+						swimAnimation: "swim",
+
+						animationSpeed: 1.0,
+						alarmHerd: true,
+						soundStartMs: 950,
+						whenInEmotionState: "aggressiveondamage"
+					},
+					// Keep distance from any threat that approaches.
+					{
+						code: "morale",
+						priority: 3.0,
+						priorityForCancel: 4.0,
+						movespeed: 0.040,
+						cancelOnHurt: true,
+						routDistance: 14,
+						rallyTimeAfterRoutMs: 12000,
+						minMorale: -100.0,
+						maxMorale: -100.0,
+						moraleRange: 6,
+						useGroupMorale: false,
+						canRoutFromAnyEnemy: false,
+						tacticalRetreat: true,
+
+						entitySourcesOfFear: [
+							{ code: "player",            fearWeight: 1.0 },
+							{ code: "drifter-*",         fearWeight: 1.0 },
+							{ code: "humanoid-villager-*", fearWeight: 1.0 },
+							{ code: "fremen-*",          fearWeight: 1.0 },
+							{ code: "harkonnen-*",       fearWeight: 1.0 }
+						],
+
+						animation: "sprint",
+						animationSpeed: 1,
+						whenNotInEmotionState: "aggressiveondamage"
+					},
+					// Hunt game animals.
+					{
+						code: "engageentity",
+						entityCodes: ["wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "chicken-rooster", "chicken-hen", "chicken-baby", "hare-male", "hare-female",
+							"fox-male-red", "fox-female-red", "fox-male-arctic", "fox-female-arctic", "pig-wild-male", "pig-wild-female", "raccoon-male", "raccoon-female", "sheep-bighorn-male", "sheep-bighorn-female",
+							"deer-*", "goat-*"],
+						priority: 2.0,
+					searchWaitMs: 2000,
+					maxFollowTime: 30,
+					noLOSTimeout: 8000,
+						mincooldown: 0,
+						maxcooldown: 0,
+						pursueSpeed: 0.045,
+						pursueRange: 60,
+						seekingRange: 60,
+						pursueAnimation: "sprint",
+						engageSpeed: 0.045,
+						engageRange: 4,
+						engageAnimation: "sprint",
+
+						withdrawIfNoPath: true,
+						withdrawDist: 9.0,
+						withdrawDistDamaged: 40.0,
+						withdrawAnimation: "idle",
+
+						swimAnimation: "swim",
+
+						animationSpeed: 1.0,
+						alarmHerd: true,
+						soundStartMs: 950,
+						whenNotInEmotionState: "saturated"
+					},
+					{
+						code: "getoutofwater",
+						priority: 2,
+						movespeed: 0.040,
+						animation: "swim",
+						animationSpeed: 0.3
+					},
+					{
+						code: "idle",
+						priority: 0.8,
+						minduration: 5000,
+						maxduration: 30000,
+						mincooldown: 2000,
+						maxcooldown: 120000,
+						priorityForCancel: 1.33,
+						animation: "look",
+						whenNotInEmotionState: "fleeondamage",
+						stopOnNearbyEntityCodes: ["player", "drifter-*", "wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "humanoid-villager-*", "fremen-*", "harkonnen-*"],
+						stopRange: 5
+					},
+					{
+						code: "wander",
+						priority: 0.5,
+						priorityForCancel: 1.35,
+						movespeed: 0.006,
+						minduration: 2500,
+						maxduration: 5000,
+						mincooldown: 5000,
+						maxcooldown: 10000,
+						animation: "walkspearshouldered",
+						preferredLightLevel: 20,
+						whenNotInEmotionState: "fleeondamage"
+					}
+				]
+			},
+			{ code: "vsdune.outlawarrakis" },
+			{ code: "vsdune.randomoutfit" }
+		]
+		// Vanilla spawnconditions stripped: VSDune handles all faction
+		// spawning via event-driven systems (spice blows, wrecks,
+		// patrols, raids). See src/Systems/GenFactionSpawner.cs.
+	},
+	sounds: {
+		idle: "creature/bandit/idle1",
+		hurt: "creature/bandit/hurt",
+		death: "creature/bandit/die2",
+		melee: "creature/bandit/attack",
+		fleeentity: "creature/bandit/flee",
+		morale: "creature/bandit/flee",
+		seekentity: "creature/bandit/youdead"
+	},
+	idleSoundChance: 0.08
+}

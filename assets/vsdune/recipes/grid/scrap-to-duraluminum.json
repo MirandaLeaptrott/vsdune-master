@@ -1,0 +1,12 @@
+[
+	{
+
+		"ingredientPattern": "SSS	SSS	SSS",
+		"ingredients": {
+			"S": { "type": "item", "code": "vsdune:scrap" }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:ingot-duraluminum", "quantity": 1 }
+	}
+]

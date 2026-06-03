@@ -1,0 +1,30 @@
+{
+
+	"code": "carryall",
+	"class": "EntityOrnithopter",
+	"tags": ["inanimate", "vehicle"],
+	"hitboxSize": { "x": 20.0, "y": 8.0 },
+	"deadHitboxSize": { "x": 20.0, "y": 8.0 },
+	"eyeHeight": 4.0,
+	"canClimb": false,
+	"attributes": { "ornithopter": true },
+	"drops": [],
+	"client": {
+		"renderer": "Shape",
+		"shape": { "base": "vsdune:carryall" },
+		"size": 1.0,
+		"behaviors": [
+			{ "code": "interpolateposition" },
+			{ "code": "vsdune.ornithoptersound" }
+		],
+		"animations": [
+			{ "code": "flight", "animation": "flight", "animationSpeed": 1.2, "blendMode": "Average" }
+		]
+	},
+	"server": {
+		"behaviors": [
+			{ "code": "health", "currenthealth": 400, "maxhealth": 400 },
+			{ "code": "vsdune.ornithopterflight" }
+		]
+	}
+}

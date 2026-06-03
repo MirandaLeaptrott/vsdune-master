@@ -1,0 +1,143 @@
+[
+	{
+		code: "clay",
+		triesPerChunk: 0.019,
+		generator: "disc-followsurfacebelow",
+		attributes: {
+			inblock: { code: "soil-*", name: "fertcover", allowedVariants: ["low-none", "medium-none", "low-verysparse", "medium-verysparse", "low-sparse", "medium-sparse", "low-normal", "medium-normal"] },
+			placeblock: { 
+				code: "rawclay-red-*", 
+				name: "clayfertcover",
+				allowedVariantsByInBlock: {
+					"soil-low-none": ["none"],
+					"soil-medium-none": ["none"],
+					"soil-low-verysparse": ["verysparse"],
+					"soil-medium-verysparse": ["verysparse"],
+					"soil-low-sparse": ["verysparse"],
+					"soil-medium-sparse": ["verysparse"],
+					"soil-low-normal": ["verysparse"],
+					"soil-medium-normal": ["verysparse"]
+				}
+			},
+			withLastLayerBlockCallback: true,
+			radius: { dist: "uniform", avg: 13, var: 6 },
+			depth: { dist: "uniform", avg: 0, var: 0 },
+			thickness: { avg: 3.3, var: 1 },
+			maxYRoughness: 1,
+		},
+		climate: {
+			minRain: 0.27,
+			minTemp: -10
+		},
+	},
+	{
+		code: "clay",
+		triesPerChunk: 0.004,
+		generator: "disc-followsurfacebelow",
+		attributes: {
+			inblock: { code: "soil-*", name: "fertcover", allowedVariants: ["low-none", "medium-none", "low-verysparse", "medium-verysparse", "low-sparse", "medium-sparse", "low-normal", "medium-normal"] },
+			placeblock: { 
+				code: "rawclay-blue-*", 
+				name: "clayfertcover",
+				allowedVariantsByInBlock: {
+					"soil-low-none": ["none"],
+					"soil-medium-none": ["none"],
+					"soil-low-verysparse": ["verysparse"],
+					"soil-medium-verysparse": ["verysparse"],
+					"soil-low-sparse": ["verysparse"],
+					"soil-medium-sparse": ["verysparse"],
+					"soil-low-normal": ["verysparse"],
+					"soil-medium-normal": ["verysparse"]
+				}
+			},
+			withLastLayerBlockCallback: true,
+			radius: { dist: "uniform", avg: 13, var: 6 },
+			depth: { dist: "uniform", avg: 0, var: 0 },
+			thickness: { avg: 3.3, var: 1 },
+			maxYRoughness: 1,
+		},
+		climate: {
+			minRain: 0.27,
+			minTemp: -10,
+			minY: 0.9,
+			maxY: 1.0	
+		},
+	},
+	{
+		// fairly common Small patches of fireclay in BAUXITE SAND AND GRAVEL
+		code: "fireclay",
+		triesPerChunk: 0.004,
+		generator: "disc-followsurfacebelow",
+		attributes: {
+			inblock: { code: "*-bauxite", name: "type", allowedVariants: [ "sand", "gravel" ] },
+			placeblock: { code: "rawclay-fire-verysparse"	},
+			withLastLayerBlockCallback: true,
+			radius: { dist: "uniform", avg: 4, var: 2 },
+			depth: { dist: "uniform", avg: 0, var: 0 },
+			thickness: { avg: 2, var: 1 },
+			maxYRoughness: 1,
+		},
+		climate: {
+			minRain: 0.27,
+			minTemp: -10,
+		},
+	},
+	{
+		// rare large patches of fireclay in BAUXITE SAND AND GRAVEL
+		code: "fireclay",
+		triesPerChunk: 0.0002,
+		generator: "disc-followsurfacebelow",
+		attributes: {
+			inblock: { code: "*-bauxite", name: "type", allowedVariants: [ "sand", "gravel" ] },
+			placeblock: { code: "rawclay-fire-verysparse"	},
+			withLastLayerBlockCallback: true,
+			radius: { dist: "uniform", avg: 12, var: 5 },
+			depth: { dist: "uniform", avg: 0, var: 0 },
+			thickness: { avg: 3.3, var: 1 },
+			maxYRoughness: 1,
+		},
+		climate: {
+			minRain: 0.1,
+			minTemp: -10,
+		},
+	},
+	{
+		// COLD CLIMATE small RED clay patches in GRAVEL
+		code: "redclay",
+		triesPerChunk: 0.01,
+		generator: "disc-followsurfacebelow",
+		attributes: {
+			inblock: { code: "gravel-*" },
+			placeblock: { code: "rawclay-red-verysparse" },
+			withLastLayerBlockCallback: true,
+			radius: { dist: "uniform", avg: 4, var: 2 },
+			depth: { dist: "uniform", avg: 0, var: 0 },
+			thickness: { avg: 1, var: 0 },
+			maxYRoughness: 1,
+		},
+		climate: {
+			minRain: 0.27,
+			minTemp: -25,
+			maxTemp: -10.1,
+		},
+	},
+	{
+		// COLD CLIMATE small RED clay patches in SOIL
+		code: "redclay",
+		triesPerChunk: 0.01,
+		generator: "disc-followsurfacebelow",
+		attributes: {
+			inblock: { code: "soil-*" },
+			placeblock: { code: "rawclay-red-verysparse" },
+			withLastLayerBlockCallback: true,
+			radius: { dist: "uniform", avg: 4, var: 2 },
+			depth: { dist: "uniform", avg: 0, var: 0 },
+			thickness: { avg: 1, var: 0 },
+			maxYRoughness: 1,
+		},
+		climate: {
+			minTemp: -25,
+			maxTemp: -10.1,
+		},
+	}
+]

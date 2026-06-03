@@ -1,0 +1,8 @@
+[
+
+	{ "file": "game:config/weatherpatterns/cumulonimbus.json", "op": "replace", "path": "/0/weight", "value": 0.3,  "side": "Universal" },
+	{ "file": "game:config/weatherpatterns/cumulonimbus.json", "op": "replace", "path": "/1/weight", "value": 0.05, "side": "Universal" },
+	{ "file": "game:config/weatherpatterns/cumulonimbus.json", "op": "replace", "path": "/2/weight", "value": 0.02, "side": "Universal" },
+	{ "file": "game:config/weatherpatterns/cumulonimbus.json", "op": "replace", "path": "/1/precipitation/baseIntensity/avg", "value": 0, "side": "Universal" },
+	{ "file": "game:config/weatherpatterns/cumulonimbus.json", "op": "replace", "path": "/2/precipitation/baseIntensity/avg", "value": 0, "side": "Universal" }
+]

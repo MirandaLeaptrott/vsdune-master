@@ -1,0 +1,41 @@
+{
+	// Player-placed thumper. Right-click activates; pulses + summons a
+	// vertworm in ~210s. Placement gate: block directly below must be
+	// sand material (BlockThumper.CanPlaceBlock).
+	"code": "thumper",
+	"class": "BlockThumper",
+	"entityClass": "Thumper",
+	"entityBehaviors": [
+		{ "name": "Animatable" }
+	],
+	"shape": { "base": "vsdune:thumper" },
+	"drawtype": "JSON",
+	"blockmaterial": "Metal",
+	"textures": {
+		"lead":  { "base": "game:block/metal/plate/lead" },
+		"lead1": { "base": "game:block/metal/riveted/lead1" }
+	},
+	"resistance": 3,
+	"requiredMiningTier": 1,
+	"sounds": {
+		"hit":   "game:block/anvil",
+		"break": "game:block/anvil",
+		"place": "game:block/anvil",
+		"walk":  "game:walk/stone"
+	},
+	"drops": [
+		{ "type": "block", "code": "vsdune:thumper", "quantity": { "avg": 1, "var": 0 } }
+	],
+	"creativeinventory": { "general": ["*"], "construction": ["*"] },
+	"sideopaque": { "all": false },
+	"sidesolid": { "all": false },
+	"selectionBox": { "x1": 0.40, "y1": 0, "z1": 0.40, "x2": 0.60, "y2": 0.60, "z2": 0.60 },
+	"collisionBoxes": [
+		{ "x1": 0.40, "y1": 0, "z1": 0.40, "x2": 0.60, "y2": 0.60, "z2": 0.60 }
+	],
+	"tpHandTransform": {
+		"translation": { "x": -0.5, "y": -0.5, "z": -0.45 },
+		"rotation": { "x": 0, "y": -5, "z": -4 },
+		"scale": 1.16
+	}
+}

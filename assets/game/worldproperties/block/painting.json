@@ -1,0 +1,80 @@
+{
+	Code: "painting",
+	"variants":[
+		{
+			Code: "howl",
+		},
+		{
+			Code: "elk",
+		},
+		{
+			Code: "underwater",
+		},
+		{
+			Code: "prey",
+		},
+		{
+			Code: "family1",
+		},
+		{
+			Code: "forestdawn",
+		},
+		{
+			Code: "fishandtherain",
+		},
+		{
+			Code: "bogfort",
+		},
+		{
+			Code: "butterfly",
+		},
+		{
+			Code: "castleruin",
+		},
+		{
+			Code: "cow",
+		},
+		{
+			Code: "glam",
+		},
+		{
+			Code: "hunter",
+		},
+		{
+			Code: "hunterintheforest",
+		},
+		{
+			Code: "iris",
+		},
+		{
+			Code: "seraph",
+		},
+		{
+			Code: "sleepingwolf",
+		},
+		{
+			Code: "sodhouse"
+		},
+		{
+			Code: "sunkenruin",
+		},
+		{
+			Code: "thunderlord",
+		},
+		{
+			Code: "traveler",
+		},
+		{
+			Code: "trout",
+		},
+		{
+			Code: "oldvillage",
+		},
+		{
+			Code: "lastday"
+		},
+		{
+			Code: "uncle1",
+		}
+	]
+}

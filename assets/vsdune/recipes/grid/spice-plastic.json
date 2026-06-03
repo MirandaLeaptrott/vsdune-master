@@ -1,0 +1,13 @@
+[
+	{
+
+		"ingredientPattern": "_S_	SFS	_S_",
+		"ingredients": {
+			"S": { "type": "item", "code": "vsdune:spice-unprocessed-dry" },
+			"F": { "type": "item", "code": "game:calcined-flint" }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:spice-plastic", "quantity": 1 }
+	}
+]

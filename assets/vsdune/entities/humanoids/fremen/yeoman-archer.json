@@ -1,0 +1,398 @@
+{
+	code: "fremen-archer",
+	class: "EntityFactionUnit",
+	canClimb: true,
+	hitboxSize: { x: 0.6, y: 1.75 },
+	deadHitboxSize: { x: 0.75, y: 0.5 },
+	eyeHeight: 1.7,
+	attributes: {
+		reckless: false,
+		killedByInfoText: "deadcreature-eaten-fremen-archer",
+		factionCode: "fremen",
+		outfitversion: 1
+	},
+
+	drops: [
+			{
+				type: "item",
+				code: "game:poultice-reed-horsetail",
+				quantity: { avg: 0.4, var: 0 }
+			},
+			{
+				type: "item",
+				code: "game:gear-rusty",
+				quantity: { avg: 0.33, var: 0 }
+			},
+			{
+				type: "item",
+				code: "game:nugget-nativecopper",
+				quantity: { avg: 0.125, var: 0.0 }
+			},
+			{
+				type: "item",
+				code: "game:nugget-nativesilver",
+				quantity: { avg: 0.025, var: 0.0 }
+			},
+			{
+				type: "item",
+				code: "game:nugget-nativegold",
+				quantity: { avg: 0.005, var: 0 }
+			},
+			{
+				type: "item",
+				code: "game:arrow-copper",
+				quantity: { avg: 1, var: 2 }
+			},
+			{
+				type: "item",
+				code: "game:bow-long",
+				quantity: { avg: 0.05, var: 0.0 }
+			},
+			{
+				type: "item",
+				code: "vsdune:ornithopter-controlkey",
+				quantity: { avg: 0.03, var: 0.0 }
+			}
+	],
+	client: {
+		renderer: "Shape",
+		shape: { base: "entity/land/yeoman-archer" },
+		textures: {
+			"yeoman": { base: "entity/bandit/yeoman1", alternates: [ { base: "entity/bandit/yeoman2" }, { base: "entity/bandit/yeoman3" }, { base: "entity/bandit/yeoman4" } ] }
+		},
+		behaviors: [
+			{ code: "repulseagents" },
+			{ code: "floatupwhenstuck", onlyWhenDead: true },
+			{ code: "controlledphysics", stepHeight: 1.1251 },
+			{ code: "harvestable" },
+			{ code: "interpolateposition" },
+			{ code: "vsdune.randomoutfit" },
+			{ code: "vsdune.handinventory" }
+		],
+		animations: [
+			{
+				code: "die",
+				animation: "die",
+				animationSpeed: 1.75,
+				weight: 10,
+				blendMode: "Average",
+				triggeredBy: { onControls: ["dead"] }
+			},
+			{
+				code: "hurt",
+				animation: "hurt",
+				animationSpeed: 2,
+				weight: 8,
+				blendMode: "AddAverage"
+			},
+			{
+				code: "wander",
+				animation: "walk",
+				blendMode: "Average",
+				easeOutSpeed: 1
+			},
+			{
+				code: "sprint",
+				animation: "sprint",
+				animationSpeed: 0.6,
+				mulWithWalkSpeed: true,
+				blendMode: "Average"
+			},
+			{
+				code: "melee",
+				animation: "attack",
+				weight: 5,
+				blendMode: "AddAverage"
+			},
+			{
+				code: "firearm-shoot",
+				animation: "firearm-shoot",
+				weight: 10,
+				blendMode: "Average"
+			},
+			{
+				code: "look",
+				animation: "look",
+				easeOutSpeed: 1,
+				blendMode: "Add",
+				SupressDefaultAnimation: true
+			},
+			{
+				code: "walk",
+				animation: "walk",
+				SupressDefaultAnimation: true
+			},
+			{
+				code: "walkbowready",
+				animation: "walkbowready",
+				blendMode: "AddAverage",
+				SupressDefaultAnimation: false
+			},
+			{
+				code: "idle",
+				animation: "idle",
+				blendMode: "AddAverage"
+			},
+			{
+				code: "firearm-ready",
+				animation: "firearm-ready",
+				blendMode: "Average",
+				triggeredBy: { defaultAnim: true }
+			}
+		]
+	},
+	server: {
+		attributes: {
+			pathfinder: {
+				minTurnAnglePerSec: 960,
+				maxTurnAnglePerSec: 1920
+			}
+		},
+		behaviors: [
+			{ code: "repulseagents" },
+			{ code: "despawn", minPlayerDistance: 8, belowLightLevel: 8, minSeconds: 300 },
+			{ code: "controlledphysics", stepHeight: 1.1251 },
+			{ code: "deaddecay", hoursToDecay: 96, decayedBlock: "carcass-human" },
+			{ code: "floatupwhenstuck", onlyWhenDead: true },
+			{ code: "health", currenthealth: 12, maxhealth: 12 },
+			{ code: "harvestable", drops: [
+				{
+					type: "item",
+					code: "outlawhead-yeoman",
+					quantity: { avg: 1, var: 0 }
+				}
+				]
+			},
+			{ code: "breathe" },
+			{
+				code: "emotionstates",
+				states: [
+					{ code: "aggressiveondamage", duration: 4, chance: 0.2, slot: 0, priority: 2, accumType: "noaccum" },
+					{ code: "fleeondamage", duration: 14, chance: 0.50, slot: 2, priority: 4, accumType: "max", whenHealthRelBelow: 0.50 }
+				]
+			},
+			{
+				code: "taskai",
+				aitasks: [
+					{
+						code: "reacttoprojectiles",
+						entityCodes: ["player", "harkonnen-*", "smuggler-*"],
+						priority: 5.1
+					},
+					{
+						code: "morale",
+						priority: 5.0,
+						movespeed: 0.040,
+						cancelOnHurt: false,
+						routDistance: 60,
+						rallyTimeAfterRoutMs: 10000,
+						minMorale: 0.7,
+						maxMorale: 0.9,
+						moraleRange: 15,
+						useGroupMorale: true,
+						deathsImpactMorale: true,
+						canRoutFromAnyEnemy: true,
+
+						entitySourcesOfFear: [
+							{ code: "fremen-*",     fearWeight: -0.1 },
+							{ code: "harkonnen-*",  fearWeight:  0.1 },
+							{ code: "smuggler-*",   fearWeight:  0.1 }
+						],
+
+						itemStackSourcesOfFear: [
+							{ code: "outlawhead-*",  fearWeight: 0.2 },
+							{ code: "headonspear-*", fearWeight: 0.2 }
+						],
+
+						poiSourcesOfFear: [
+							{ poiType: "outlawSpawnBlocker", fearWeight: 0.2 }
+						],
+
+						animation: "sprint",
+						animationSpeed: 1
+					},
+					{
+						code: "melee",
+						entityCodes: ["player", "drifter-*", "wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "humanoid-villager-*", "harkonnen-*", "smuggler-*"],
+						priority: 4.0,
+						damage: 1.5,
+						damageTier: 1,
+						damageType: "BluntAttack",
+						slot: 1,
+						mincooldown: 500,
+						maxcooldown: 1500,
+						attackDurationMs: 450,
+						damagePlayerAtMs: 300,
+						animation: "attack",
+						animationSpeed: 1
+					},
+					// Flee to musket range. Player intentionally absent
+					// from the fear list so non-aggrieved fremen don't
+					// back away from peaceful player approach.
+					{
+						code: "morale",
+						priority: 4.9,
+						movespeed: 0.040,
+						cancelOnHurt: false,
+						routDistance: 15,
+						rallyTimeAfterRoutMs: 10000,
+						minMorale: -100.0,
+						maxMorale: -100.0,
+						moraleRange: 5,
+						useGroupMorale: true,
+						canRoutFromAnyEnemy: false,
+						tacticalRetreat: true,
+
+						entitySourcesOfFear: [
+							{ code: "drifter-*",         fearWeight: 1.0 },
+							{ code: "humanoid-villager-*", fearWeight: 1.0 },
+							{ code: "wolf-male",         fearWeight: 1.0 },
+							{ code: "wolf-female",       fearWeight: 1.0 },
+							{ code: "hyena-male",        fearWeight: 1.0 },
+							{ code: "hyena-female",      fearWeight: 1.0 },
+							{ code: "locust-*",          fearWeight: 1.0 },
+							{ code: "bear-*",            fearWeight: 1.0 },
+							{ code: "harkonnen-*",       fearWeight: 1.0 },
+							{ code: "smuggler-*",        fearWeight: 1.0 }
+						],
+
+						animation: "sprint",
+						animationSpeed: 1
+					},
+					// Muzzle-loader musket: long reload, hard-hitting slug.
+					{
+						code: "shootatentity",
+						entityCodes: ["player", "drifter-*", "wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "humanoid-villager-*", "harkonnen-*", "smuggler-*"],
+						priority: 3.75,
+					searchWaitMs: 2000,
+					maxFollowTime: 30,
+					noLOSTimeout: 8000,
+						priorityForCancel: 9,
+						mincooldown: 3500,
+						maxcooldown: 4500,
+						minDist: 4,
+						maxDist: 45,
+						maxVertDist: 30,
+						minRangeDistOffTarget: 0.15,
+						maxRangeDistOffTarget: 0.3,
+						maxVelocity: 2.5,
+						newTargetDistOffTarget: 0.3,
+						newTargetZeroingTime: 1.0,
+						damage: 11.0,
+						damageFalloffPercent: 0.66,
+						damageFalloffStartDist: 25,
+						damageFalloffEndDist: 50,
+						projectileItem: "maltiezfirearms:slug-lead",
+						projectileRemainsInWorld: false,
+						projectileBreakOnImpactChance: 1.0,
+						stopIfPredictFriendlyFire: true,
+
+						leadTarget: true,
+						arcShots: false,
+						alarmHerd: true,
+						fireOnLastKnownPosition: true,
+						lastKnownPositionTimeoutMs: 5000,
+
+						advanceAfterShooting: true,
+
+						durationMs: 2000,
+						releaseAtMs: 1000,
+						animationSpeed: 1.0,
+						animation: "firearm-shoot",
+						shootSound: "maltiezfirearms:musket/musket-fire-1",
+						yawDispersionDeg: 6,
+						pitchDispersionDeg: 5
+					},
+					{
+						code: "getoutofwater",
+						priority: 2,
+						movespeed: 0.040,
+						animation: "swim",
+						animationSpeed: 0.3
+					},
+					{
+						code: "engageentity",
+						entityCodes: ["player", "drifter-*", "wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "humanoid-villager-*", "harkonnen-*", "smuggler-*"],
+						priority: 1.5,
+					searchWaitMs: 2000,
+					noLOSTimeout: 8000,
+						priorityForCancel: 3.0,
+						mincooldown: 0,
+						maxcooldown: 0,
+						pursueSpeed: 0.040,
+						pursueRange: 45,
+						seekingRange: 45,
+						pursueAnimation: "sprint",
+						engageSpeed: 0.026,
+						engageRange: 4,
+						engageAnimation: "walkbowready",
+						animation: "walkbowready",
+						swimAnimation: "swim",
+						arriveRange: 4,
+						arriveVerticalRange: 4,
+
+						withdrawIfNoPath: true,
+						withdrawDist: 20.0,
+						withdrawDistDamaged: 30.0,
+						withdrawAnimation: "idle",
+
+						animationSpeed: 1.0,
+						maxFollowTime: 60,
+						alarmHerd: true
+					},
+					{
+						code: "stayclosetoherd",
+						priority: 1.1,
+
+						movespeed: 0.006,
+						moveSpeedFarAway: 0.04,
+						moveNearAnimation: "walk",
+						moveFarAnimation: "sprint",
+
+						animationSpeed: 1.0,
+						maxDistance: 15,
+						arriveDistance: 8,
+						searchRange: 25,
+						allowStrayFromHerdInCombat: false,
+						allowHerdConsolidation: true,
+						consolidationRange: 40,
+						consolidationEntityCodes: ["fremen-*"],
+						animation: "sprint"
+					},
+					{
+						code: "wander",
+						priority: 0.5,
+						priorityForCancel: 1.35,
+						movespeed: 0.006,
+						minduration: 2500,
+						maxduration: 5000,
+						mincooldown: 5000,
+						maxcooldown: 10000,
+						animation: "walkbowready",
+						preferredLightLevel: 20,
+						whenNotInEmotionState: "fleeondamage"
+					}
+				]
+			},
+			{ code: "vsdune.outlawarrakis" },
+			{ code: "vsdune.randomoutfit" },
+			{ code: "vsdune.handinventory" },
+			{ code: "vsdune.weaponspawn", itemCode: "maltiezfirearms:firearm-arquebus-rusted" }
+		]
+		// Vanilla spawnconditions stripped: VSDune handles all faction
+		// spawning via event-driven systems (spice blows, wrecks,
+		// patrols, raids). See src/Systems/GenFactionSpawner.cs.
+	},
+	sounds: {
+		idle: "creature/bandit/idle1",
+		hurt: "creature/bandit/hurt",
+		death: "creature/bandit/die2",
+		melee: "creature/bandit/attack",
+		fleeentity: "creature/bandit/flee",
+		morale: "creature/bandit/flee",
+		seekentity: "creature/bandit/youdead",
+		drawSound: "bow-draw",
+		shootSound: "bow-release"
+	},
+	idleSoundChance: 0.08
+}

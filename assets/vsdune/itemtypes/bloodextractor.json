@@ -1,0 +1,30 @@
+{
+	// Blood Extractor. Right-click on a dead enemy to extract ~1L of
+	// water into the first viable liquid container; corpse despawns,
+	// tool loses 1 durability. Item code is bloodextractor; the C#
+	// class is named ItemBloodFilter (legacy from the framework spec).
+	"code": "bloodextractor",
+	"class": "ItemBloodFilter",
+	"shape": { "base": "vsdune:item/bloodextractor" },
+	"durability": 100,
+	"maxStackSize": 1,
+	"creativeinventory": { "general": ["*"], "tools": ["*"] },
+	"attributes": {
+		"handbook": {
+			"groupBy": ["bloodextractor"]
+		}
+	},
+	"heldTpIdleAnimation": "holdunderarm",
+	"heldRightTpHitAnimation": "interactstatic",
+	"tpHandTransform": {
+		"translation": { "x": -1.1, "y": -0.9, "z": -1 },
+		"rotation": { "x": -111, "y": -94, "z": 19 },
+		"scale": 0.91
+	},
+	"guiTransform": {
+		"translation": { "x": 0, "y": 0, "z": 0 },
+		"rotation": { "x": -22, "y": -47, "z": 38 },
+		"origin": { "x": 0.5, "y": 0.5, "z": 0.5 },
+		"scale": 2
+	}
+}

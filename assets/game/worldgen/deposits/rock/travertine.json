@@ -1,0 +1,26 @@
+[
+	{
+		code: "travertine",
+		triesPerChunk: 0.04,
+		generator: "disc-followsurface",
+		attributes: {
+			inblock: { code: "rock-limestone" },
+			placeblock: { code: "rock-travertine" },
+			radius: { dist: "gaussian", avg: 24, var: 12 },
+			yPosRel: {dist: "uniform", avg: 0.4, var: 0.8 },
+			thickness: { dist: "invexp", avg: 2.5, var: 6 }
+		}
+	},
+	{
+		code: "travertine",
+		triesPerChunk: 0.01,
+		generator: "disc-followsurface",
+		attributes: {
+			inblock: { code: "rock-limestone", name: "rock", allowedVariants: ["slate", "phyllite", "limestone"] },
+			placeblock: { code: "rock-travertine" },
+			radius: { dist: "gaussian", avg: 12, var: 6 },
+			yPosRel: {dist: "uniform", avg: 0.4, var: 0.8 },
+			thickness: { dist: "invexp", avg: 2, var: 1 }
+		}
+	}
+]

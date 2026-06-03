@@ -1,0 +1,23 @@
+{
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+		"all": [16, 16]
+	},
+	"elements": [
+		{
+			"name": "drop",
+			"from": [6, 0, 6],
+			"to": [10, 2, 10],
+			"rotationOrigin": [8, 0, 8],
+			"faces": {
+				"north": { "texture": "#all", "uv": [6, 0, 10, 2] },
+				"east":  { "texture": "#all", "uv": [6, 0, 10, 2] },
+				"south": { "texture": "#all", "uv": [6, 0, 10, 2] },
+				"west":  { "texture": "#all", "uv": [6, 0, 10, 2] },
+				"up":    { "texture": "#all", "uv": [6, 6, 10, 10] },
+				"down":  { "texture": "#all", "uv": [6, 6, 10, 10] }
+			}
+		}
+	]
+}

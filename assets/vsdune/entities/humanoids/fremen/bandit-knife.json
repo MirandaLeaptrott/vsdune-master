@@ -1,0 +1,321 @@
+{
+	code: "fremen-warrior-knife",
+	class: "EntityFactionUnit",
+	canClimb: true,
+	hitboxSize: { x: 0.6, y: 1.75 },
+	deadHitboxSize: { x: 0.75, y: 0.5 },
+	eyeHeight: 1.7,
+	attributes: {
+		reckless: false,
+		killedByInfoText: "deadcreature-eaten-fremen-warrior-knife",
+		factionCode: "fremen",
+		outfitversion: 1
+	},
+
+	drops: [
+			{
+				type: "item",
+				code: "game:poultice-reed-horsetail",
+				quantity: { avg: 0.4, var: 0 }
+			},
+			{
+				type: "item",
+				code: "game:gear-rusty",
+				quantity: { avg: 0.33, var: 0 }
+			},
+			{
+				type: "item",
+				code: "game:nugget-nativecopper",
+				quantity: { avg: 0.125, var: 0.0 }
+			},
+			{
+				type: "item",
+				code: "game:nugget-nativesilver",
+				quantity: { avg: 0.025, var: 0.0 }
+			},
+			{
+				type: "item",
+				code: "game:nugget-nativegold",
+				quantity: { avg: 0.005, var: 0 }
+			},
+			{
+				type: "item",
+				code: "game:knife-generic-copper",
+				quantity: { avg: 0.10, var: 0.0 }
+			},
+			{
+				type: "item",
+				code: "vsdune:ornithopter-controlkey",
+				quantity: { avg: 0.015, var: 0.0 }
+			}
+	],
+	client: {
+		renderer: "Shape",
+		shape: { base: "entity/land/bandit-knife" },
+		behaviors: [
+			{ code: "repulseagents" },
+			{ code: "floatupwhenstuck", onlyWhenDead: true },
+			{ code: "controlledphysics", stepHeight: 1.1251 },
+			{ code: "harvestable" },
+			{ code: "interpolateposition" },
+			{ code: "vsdune.randomoutfit" },
+			{ code: "vsdune.handinventory" }
+		],
+		animations: [
+			{
+				code: "die",
+				animation: "die",
+				animationSpeed: 1.75,
+				weight: 10,
+				blendMode: "Average",
+				triggeredBy: { onControls: ["dead"] }
+			},
+			{
+				code: "hurt",
+				animation: "hurt",
+				animationSpeed: 2,
+				weight: 8,
+				blendMode: "AddAverage"
+			},
+			{
+				code: "wander",
+				animation: "walk",
+				blendMode: "Average",
+				easeOutSpeed: 1
+			},
+			{
+				code: "sprint",
+				animation: "sprint",
+				animationSpeed: 0.6,
+				mulWithWalkSpeed: true,
+				blendMode: "Average"
+			},
+			{
+				code: "melee",
+				animation: "attack",
+				weight: 5,
+				blendMode: "AddAverage"
+			},
+			{
+				code: "idle",
+				animation: "idle",
+				blendMode: "AddAverage",
+				triggeredBy: { defaultAnim: true }
+			}
+		]
+	},
+	server: {
+		attributes: {
+			pathfinder: {
+				minTurnAnglePerSec: 960,
+				maxTurnAnglePerSec: 1920
+			}
+		},
+		behaviors: [
+			{ code: "repulseagents" },
+			{ code: "despawn", minPlayerDistance: 8, belowLightLevel: 8, minSeconds: 300 },
+			{ code: "controlledphysics", stepHeight: 1.1251 },
+			{ code: "deaddecay", hoursToDecay: 96, decayedBlock: "carcass-human" },
+			{ code: "floatupwhenstuck", onlyWhenDead: true },
+			{ code: "health", currenthealth: 12, maxhealth: 12 },
+			{ code: "harvestable", drops: [
+				{
+					type: "item",
+					code: "outlawhead-brigand",
+					quantity: { avg: 1, var: 0 }
+				}
+				]
+			},
+			{ code: "breathe" },
+			{
+				code: "emotionstates",
+				states: [
+					{ code: "aggressiveondamage", duration: 4, chance: 0.2, slot: 0, priority: 2, accumType: "noaccum" },
+					{ code: "fleeondamage", duration: 2.0, chance: 1.00, slot: 2, priority: 4, accumType: "noaccum", whenHealthRelBelow: 1.00 },
+					{ code: "nopathfrustrated", duration: 5.0, chance: 1.00, slot: 3, priority: 2.5, accumType: "noaccum" }
+				]
+			},
+			{
+				code: "taskai",
+				aitasks: [
+					{
+						code: "reacttoprojectiles",
+						entityCodes: ["player", "harkonnen-*", "smuggler-*"],
+						priority: 5.1
+					},
+					{
+						code: "morale",
+						priority: 5.0,
+						movespeed: 0.040,
+						cancelOnHurt: false,
+						routDistance: 60,
+						rallyTimeAfterRoutMs: 10000,
+						minMorale: 0.6,
+						maxMorale: 0.9,
+						moraleRange: 15,
+						useGroupMorale: true,
+						deathsImpactMorale: true,
+						canRoutFromAnyEnemy: true,
+
+						entitySourcesOfFear: [
+							{ code: "fremen-*",     fearWeight: -0.1 },
+							{ code: "harkonnen-*",  fearWeight:  0.1 },
+							{ code: "smuggler-*",   fearWeight:  0.1 }
+						],
+						itemStackSourcesOfFear: [
+							{ code: "outlawhead-*",  fearWeight: 0.2 },
+							{ code: "headonspear-*", fearWeight: 0.2 }
+						],
+						poiSourcesOfFear: [
+							{ poiType: "outlawSpawnBlocker", fearWeight: 0.2 }
+						],
+
+						animation: "sprint",
+						animationSpeed: 1
+					},
+					{
+						code: "melee",
+						entityCodes: ["player", "drifter-*", "wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "humanoid-villager-*", "harkonnen-*", "smuggler-*"],
+						priority: 4.0,
+						damage: 3.5,
+						damageTier: 1,
+						damageType: "SlashingAttack",
+						slot: 1,
+						mincooldown: 500,
+						maxcooldown: 1500,
+						attackDurationMs: 450,
+						damagePlayerAtMs: 300,
+						animation: "attack",
+						animationSpeed: 1
+					},
+					// disengage when injured
+					{
+						code: "morale",
+						priority: 4.5,
+						movespeed: 0.045,
+						cancelOnHurt: false,
+						routDistance: 20,
+						rallyTimeAfterRoutMs: 3500,
+						minMorale: -100,
+						maxMorale: -100,
+						moraleRange: 22,
+						useGroupMorale: false,
+						deathsImpactMorale: false,
+						canRoutFromAnyEnemy: true,
+						tacticalRetreat: true,
+
+						animation: "sprint",
+						animationSpeed: 1,
+
+						whenInEmotionState: "fleeondamage"
+					},
+					{
+						code: "engageentity",
+						entityCodes: ["player", "drifter-*", "wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "humanoid-villager-*", "harkonnen-*", "smuggler-*"],
+						priority: 4.0,
+					searchWaitMs: 2000,
+					maxFollowTime: 30,
+					noLOSTimeout: 8000,
+						mincooldown: 0,
+						maxcooldown: 0,
+						pursueSpeed: 0.048,
+						pursueRange: 70,
+						seekingRange: 70,
+						pursueAnimation: "sprint",
+						engageSpeed: 0.035,
+						engageRange: 4,
+						engageAnimation: "sprint",
+
+						withdrawIfNoPath: true,
+						withdrawDist: 15.0,
+						withdrawDistDamaged: 40.0,
+						withdrawAnimation: "idle",
+
+						swimAnimation: "swim",
+
+						animationSpeed: 1.0,
+						alarmHerd: true,
+						whenInEmotionState: "aggressiveondamage"
+					},
+					// Skirmish: wider engagement range
+					{
+						code: "engageentity",
+						entityCodes: ["player", "drifter-*", "wolf-male", "wolf-female", "hyena-male", "hyena-female", "locust-*", "bear-*", "humanoid-villager-*", "harkonnen-*", "smuggler-*"],
+						priority: 2.5,
+					searchWaitMs: 2000,
+					maxFollowTime: 30,
+					noLOSTimeout: 8000,
+						priorityForCancel: 2.5,
+						mincooldown: 0,
+						maxcooldown: 0,
+						pursueSpeed: 0.048,
+						pursueRange: 50,
+						seekingRange: 50,
+						pursueAnimation: "sprint",
+						engageSpeed: 0.035,
+						engageRange: 4,
+						engageAnimation: "sprint",
+
+						withdrawIfNoPath: true,
+						withdrawDist: 15.0,
+						withdrawDistDamaged: 40.0,
+						withdrawAnimation: "idle",
+
+						swimAnimation: "swim",
+
+						animationSpeed: 1.0,
+						alarmHerd: true
+					},
+					{
+						code: "getoutofwater",
+						priority: 2,
+						movespeed: 0.040,
+						animation: "swim",
+						animationSpeed: 0.3
+					},
+					{
+						code: "stayclosetoherd",
+						priority: 1.1,
+
+						movespeed: 0.006,
+						moveSpeedFarAway: 0.04,
+						moveNearAnimation: "walk",
+						moveFarAnimation: "sprint",
+
+						animationSpeed: 1.0,
+						maxDistance: 20,
+						arriveDistance: 8,
+						searchRange: 25,
+						allowStrayFromHerdInCombat: true,
+						allowHerdConsolidation: true,
+						consolidationRange: 40,
+						consolidationEntityCodes: ["fremen-*"]
+					},
+					{
+						code: "wander",
+						priority: 1.0,
+						priorityForCancel: 1.35,
+						movespeed: 0.006,
+						animation: "walk",
+						preferredLightLevel: 20
+					}
+				]
+			},
+			{ code: "vsdune.outlawarrakis" },
+			{ code: "vsdune.randomoutfit" },
+			{ code: "vsdune.handinventory" },
+			{ code: "vsdune.weaponspawn", itemCode: "vsdune:crysknife" }
+		]
+	},
+	sounds: {
+		idle: "creature/bandit/idle1",
+		hurt: "creature/bandit/hurt",
+		death: "creature/bandit/die2",
+		melee: "creature/bandit/attack",
+		fleeentity: "creature/bandit/flee",
+		morale: "creature/bandit/flee",
+		seekentity: "creature/bandit/givemegold",
+		engageentity: "creature/bandit/givemegold"
+	},
+	idleSoundChance: 0.08
+}

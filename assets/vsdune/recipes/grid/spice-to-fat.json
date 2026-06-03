@@ -1,0 +1,12 @@
+[
+	{
+
+		"ingredientPattern": "P	P	P	P",
+		"ingredients": {
+			"P": { "type": "item", "code": "vsdune:spice-unprocessed-dry" }
+		},
+		"width": 1,
+		"height": 4,
+		"output": { "type": "item", "code": "game:fat", "quantity": 1 }
+	}
+]

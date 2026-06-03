@@ -1,0 +1,15 @@
+{
+	"code": "spice-plastic",
+	"class": "Item",
+	"shape": { "base": "game:item/resource/leather" },
+	"textures": {
+		"leather": { "base": "vsdune:sand/spicesanddry" }
+	},
+	"maxStackSize": 32,
+	"creativeinventory": { "general": ["*"], "items": ["*"] },
+	"attributes": {
+		"handbook": {
+			"groupBy": ["spice-plastic"]
+		}
+	}
+}

@@ -1,0 +1,22 @@
+[
+	{
+		"ingredientPattern": "F_F	FHF	FFF",
+		"ingredients": {
+			"F": { "type": "item", "code": "vsdune:spicefiber" },
+			"H": { "type": "item", "code": "game:hide-prepared-small" }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:stillsuit-top-ragged", "quantity": 1 }
+	},
+	{
+		"ingredientPattern": "FFF	F_F	F_F",
+		"ingredients": {
+			"F": { "type": "item", "code": "vsdune:spicefiber" },
+			"H": { "type": "item", "code": "game:hide-prepared-small" }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:stillsuit-pants-ragged", "quantity": 1 }
+	}
+]

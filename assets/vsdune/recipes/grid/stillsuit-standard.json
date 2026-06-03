@@ -1,0 +1,24 @@
+[
+	{
+		"ingredientPattern": "RLR	LSL	RLR",
+		"ingredients": {
+			"R": { "type": "item", "code": "game:resin" },
+			"L": { "type": "item", "code": "game:leather-normal-*" },
+			"S": { "type": "item", "code": "vsdune:stillsuit-top-ragged" }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:stillsuit-top", "quantity": 1 }
+	},
+	{
+		"ingredientPattern": "RLR	LSL	RLR",
+		"ingredients": {
+			"R": { "type": "item", "code": "game:resin" },
+			"L": { "type": "item", "code": "game:leather-normal-*" },
+			"S": { "type": "item", "code": "vsdune:stillsuit-pants-ragged" }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "item", "code": "vsdune:stillsuit-pants", "quantity": 1 }
+	}
+]

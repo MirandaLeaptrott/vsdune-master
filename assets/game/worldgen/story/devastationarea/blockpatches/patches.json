@@ -1,0 +1,20 @@
+[
+	{
+		blockCodes: ["devgrowth-shard"],
+		quantity: { avg: 1, var: 1 },
+		chance: 2,
+		placement: "OnSurface"
+	},
+	{
+		blockCodes: ["devgrowth-shrike"],
+		quantity: { avg: 1, var: 1 },
+		chance: 1,
+		placement: "OnSurface"
+	},
+	{
+		blockCodes: ["devgrowth-thorns"],
+		quantity: { avg: 1, var: 1 },
+		chance: 2,
+		placement: "OnSurface"
+	}
+]

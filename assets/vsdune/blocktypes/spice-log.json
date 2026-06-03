@@ -1,0 +1,29 @@
+{
+	// Spice-log: crafted wood block (8 sticks + 2 spice). Visual reuses
+	// vanilla purpleheart textures. Single static block, no rotation
+	// variants or Pillar behavior; this is a crafted block, not a
+	// felled tree.
+	"code": "spice-log",
+	"shape": { "base": "game:block/basic/cube" },
+	"drawtype": "Cube",
+	"blockmaterial": "Wood",
+	"textures": {
+		"all": { "base": "game:block/wood/bark/purpleheart" },
+		"up":   { "base": "game:block/wood/treetrunk/purpleheart" },
+		"down": { "base": "game:block/wood/treetrunk/purpleheart" }
+	},
+	"resistance": 4.5,
+	"requiredMiningTier": 1,
+	"sounds": {
+		"hit":   "game:block/planks",
+		"break": "game:block/planks",
+		"place": "game:block/planks",
+		"walk":  "game:walk/wood"
+	},
+	"combustibleProps": {
+		"burnTemperature": 700,
+		"burnDuration": 30
+	},
+	"creativeinventory": { "general": ["*"], "construction": ["*"] },
+	"materialDensity": 600
+}

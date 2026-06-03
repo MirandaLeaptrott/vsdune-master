@@ -1,0 +1,53 @@
+{
+	// Arrakis worldgen: remap every fluid-fill block (ocean / lake /
+	// rapids / rivulet / hot spring / lake-ice) to air. Heightmap still
+	// dips below sealevel for water-heavy landforms; GenSandBasinFill
+	// fills the resulting basins with sand at runtime. Hot-spring and
+	// devastation codes left at vanilla, not currently reachable.
+
+	"saltwaterBlockCode":         "air",
+	"waterBlockCode":             "air",
+	"waterRapidsBlockCode":       "air",
+	"waterRapidsChance":          0.0,
+	"lakeIceBlockCode":           "air",
+	"basaltBlockCode":            "rock-basalt",
+	"lavaBlockCode":              "lava-still-7",
+	"mantleBlockCode":            "mantle",
+	"defaultRockCode":            "rock-granite",
+	"neutralCreatureSpawnMultiplier": 1.0,
+
+	"rivuletWaterBlockCode":      "air",
+	"rivuletRapidWaterBlockCode": "air",
+
+	// Hot-spring chain. Bacteria mats won't spawn without their host hot
+	// springs, but explicitly mapping the boiling water also prevents any
+	// genstep that places it directly. Air everywhere.
+	"hotSpringBacteria87DegCode":       "hotspringbacteria-87deg",
+	"hotSpringBacteriaSmooth74DegCode": "hotspringbacteriasmooth-74deg",
+	"hotSpringBacteriaSmooth65DegCode": "hotspringbacteriasmooth-65deg",
+	"hotSpringBacteriaSmooth55DegCode": "hotspringbacteriasmooth-55deg",
+	"sludgyGravelBlockCode":            "sludgygravel",
+	"boilingWaterBlockCode":            "air",
+
+	"devastatedSoil0Code":  "devastatedsoil-0",
+	"devastatedSoil1Code":  "devastatedsoil-1",
+	"devastatedSoil2Code":  "devastatedsoil-2",
+	"devastatedSoil3Code":  "devastatedsoil-3",
+	"devastatedSoil4Code":  "devastatedsoil-4",
+	"devastatedSoil5Code":  "devastatedsoil-5",
+	"devastatedSoil6Code":  "devastatedsoil-6",
+	"devastatedSoil7Code":  "devastatedsoil-7",
+	"devastatedSoil8Code":  "devastatedsoil-8",
+	"devastatedSoil9Code":  "devastatedsoil-9",
+	"devastatedSoil10Code": "devastatedsoil-10",
+	"devastationGrowthCode":     "devastationgrowth-normal",
+	"soilMediumNoneCode":        "soil-medium-none",
+	"soilMediumNormalCode":      "soil-medium-normal",
+	"tallgrassMediumFreeCode":   "tallgrass-medium-free",
+	"tallgrassTallFreeCode":     "tallgrass-tall-free",
+	"metaFillerBlockCode":       "meta-filler",
+	"metaPathwayBlockCode":      "meta-pathway",
+	"metaUndergroundBlockCode":  "meta-underground",
+	"metaAbovegroundBlockCode":  "meta-aboveground",
+	"spottyMossDecorCode":       "attachingplant-spottymoss"
+}

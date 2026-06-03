@@ -1,0 +1,27 @@
+{
+	// VSDune spice-debarkedlog: 6 sticks + 2 spice. The "saved bark for
+	// other uses" intermediate. Converts 1:4 into spice-planks via a
+	// grid recipe, mirroring how vanilla saw-on-chopping-block turns a
+	// debarked log into planks.
+	"code": "spice-debarkedlog",
+	"shape": { "base": "game:block/basic/cube" },
+	"drawtype": "Cube",
+	"blockmaterial": "Wood",
+	"textures": {
+		"all": { "base": "game:block/wood/debarked/purpleheart" }
+	},
+	"resistance": 4.0,
+	"requiredMiningTier": 1,
+	"sounds": {
+		"hit":   "game:block/planks",
+		"break": "game:block/planks",
+		"place": "game:block/planks",
+		"walk":  "game:walk/wood"
+	},
+	"combustibleProps": {
+		"burnTemperature": 700,
+		"burnDuration": 25
+	},
+	"creativeinventory": { "general": ["*"], "construction": ["*"] },
+	"materialDensity": 580
+}

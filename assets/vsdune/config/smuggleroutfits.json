@@ -1,0 +1,37 @@
+{
+	// Smuggler uniform: SAND desert1-helmet + desert2-body + pants2.
+	// Same body shape as Harkonen so silhouette reads similar, with
+	// deserthelmet1 swapped in to visually distinguish at a glance.
+	// Cloakmaterial is intentionally NOT overridden so the original
+	// SAND tan cloak renders (vs the Hark recolored dark-red one).
+
+	"variants": {
+		"head-smuggler": {
+			"base": "sand:entity/humanoid/seraph/sandy/armor/head/deserthelmet1/deserthelmet1",
+			"weight": 1,
+			"textures": {
+				"material": "sand:entity/humanoid/sandy/head/deserthelmet1/deserthelmet1"
+			}
+		},
+		"body-smuggler": {
+			"base": "sand:entity/humanoid/seraph/sandy/armor/body/desertarmor2/desertarmor2",
+			"weight": 1,
+			"textures": {
+				"material": "sand:entity/humanoid/sandy/body/desertarmor2/desertarmor2"
+			}
+		},
+		"legs-smuggler": {
+			"base": "sand:entity/humanoid/seraph/sandy/armor/legs/desertpants2/desertpants2",
+			"weight": 1,
+			"textures": {
+				"material": "sand:entity/humanoid/sandy/legs/desertpants2/desertpants2"
+			}
+		}
+	},
+
+	"bySlot": [
+		{ "code": "head", "variants": ["head-smuggler"] },
+		{ "code": "body", "variants": ["body-smuggler"] },
+		{ "code": "legs", "variants": ["legs-smuggler"] }
+	]
+}

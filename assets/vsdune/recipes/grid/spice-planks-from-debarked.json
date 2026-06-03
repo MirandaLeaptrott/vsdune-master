@@ -1,0 +1,10 @@
+{
+
+	"ingredientPattern": "L",
+	"ingredients": {
+		"L": { "type": "block", "code": "vsdune:spice-debarkedlog" }
+	},
+	"width": 1,
+	"height": 1,
+	"output": { "type": "block", "code": "vsdune:spice-planks", "quantity": 4 }
+}

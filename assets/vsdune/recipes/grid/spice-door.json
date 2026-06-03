@@ -1,0 +1,10 @@
+{
+
+	"ingredientPattern": "WW,WW,WW",
+	"ingredients": {
+		"W": { "type": "block", "code": "vsdune:spice-planks" }
+	},
+	"width": 2,
+	"height": 3,
+	"output": { "type": "block", "code": "vsdune:spice-door", "quantity": 1 }
+}

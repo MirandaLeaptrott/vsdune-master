@@ -1,0 +1,72 @@
+{
+	"code": "herb-new",
+	// not yet used
+	"variants": [
+		{
+			code: "angelica"
+		},
+		{
+			code: "arnica"
+		},		
+		{
+			code: "basil"
+		},
+		{
+			code: "chamomile"
+		},
+		{
+			code: "chicory"
+		},
+		{
+			code: "cilantro"
+		},
+		{
+			code: "coltsfoot"
+		},
+		{
+			code: "coriander"
+		},
+		{
+			code: "foxglove"
+		},
+		{
+			code: "horsehound"
+		},
+		{
+			code: "lavender"
+		},
+		{
+			code: "marigold"
+		},
+		{
+			code: "marjoram"
+		},
+		{
+			code: "mint"
+		},
+		{
+			code: "mugwort"
+		},
+		{
+			code: "rockrose"
+		},
+		{
+			code: "rosemary"
+		},
+		{
+			code: "saffron"
+		},
+		{
+			code: "sage"
+		},
+		{
+			code: "starflower"
+		},
+		{
+			code: "thyme"
+		},
+		{
+			code: "yarrow"
+		},
+	]
+}

@@ -1,0 +1,86 @@
+{
+	// VSDune Step 3: Sand and rock everywhere. Soil, grass, snow, and glacier
+	// rules are gone entirely. Above sealevel, every column is sand by default
+	// with sandwavy noise-painted on top for visible dune ripples, and gravel
+	// on the highest peaks where bare rockstrata shows through wherever the
+	// gravel noise gate doesn't fire (gives the rocky-mesa silhouette).
+	//
+	// tallgrass and snowlayer stubs are mandatory: BlockLayerConfig.
+	// ResolveBlockIds dereferences both unconditionally and NRE-crashes if
+	// either is missing. We keep them present but neutralized so no fields
+	// of grass and no snow caps ever generate. Sparse desert brush comes
+	// back via the custom near-rock blockpatch in src/Systems/GenDesertBrush.
+	tallgrass: {
+		// rndWeight 0 + perlinWeight 0 means the placement weight is always
+		// 0, so no tallgrass ever rolls. Empty blockCodeByMin avoids the
+		// engine resolving any block ids for blocks we wouldn't place anyway.
+		rndWeight: 0,
+		perlinWeight: 0,
+		blockCodeByMin: []
+	},
+	snowlayer: {
+		// maxTemp -100 is colder than any biome will ever produce, so the
+		// snow layer is unreachable. blockCode kept pointing at the vanilla
+		// snowlayer-1 block so GetBlockId resolves cleanly during init.
+		maxTemp: -100,
+		transitionSize: 0,
+		blockCode: "snowlayer-1"
+	},
+	// lakebed and oceanbed unchanged from Step 2. Dry impact-crater floors
+	// stay sand.
+	lakebedlayer: {
+		blockCodeByMin: [
+			{ minTemp: -30, minRain: 0, blockCode: "sand-{rocktype}" }
+		]
+	},
+	oceanbedlayer: {
+		blockCodeByMin: [
+			{ minY: 0.33, maxY: 1, blockCode: "sandwavy-{rocktype}" },
+			{ maxY: 0.33, blockCode: "sand-{rocktype}" }
+		]
+	},
+	beachlayer: {
+		strength: 1,
+		blockCode: "sand-{rocktype}"
+	},
+	v1dot8blockLayerTransitionSize: 0.015625,
+	blockLayerTransitionSize: 0,
+	blocklayers: [
+		{
+			// Noise-patched dune ripples. Fires as the topmost block where the
+			// noise gate succeeds. threshold 0 yields roughly half-coverage so
+			// dunes are visibly common but plain sand still shows through.
+			name: "Surface Sandwavy Dunes",
+			id: "duneswavysand",
+			blockCode: "sandwavy-{rocktype}",
+			noiseAmplitudes: [1, 0.8, 0.6],
+			noiseFrequencies: [2, 4, 6],
+			noiseThreshold: 0,
+			maxY: 0.78
+		},
+		{
+			// Universal sand cover for the surface and the layer beneath
+			// sandwavy. No T/R/F gates so it covers every climate.
+			name: "Surface Sand",
+			id: "surfacesand",
+			blockCode: "sand-{rocktype}",
+			maxY: 0.78
+		},
+		{
+			// High mountain peaks above maxY 0.78. Same noise pattern as
+			// vanilla L4 Gravel Mountain so gravel forms broken patches
+			// rather than a solid cap. Where the gate fails the rockstrata
+			// beneath shows through, giving exposed-rock peaks (the look
+			// we want for rocky outcrops; Phase 3 will add proper layered
+			// mesas on top of this).
+			name: "Mountain Gravel",
+			id: "mountaingravel",
+			blockCode: "gravel-{rocktype}",
+			minY: 0.78,
+			maxY: 1,
+			noiseAmplitudes: [1, 0.8, 0.6],
+			noiseFrequencies: [2, 4, 6],
+			noiseThreshold: 0.3
+		}
+	]
+}
